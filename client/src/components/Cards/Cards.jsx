@@ -19,9 +19,10 @@ export default function Cards() {
     search ? dispatch(getCountriesMatch(search)) : dispatch(getCountries())
   }, [search]);
 
+  console.log(countries)
   return (
     <>
-    { countries?.map(country =>  <Card key={country.id} country={country} />)} 
+   { countries?.map(country =>  <Card key={country.id } country={country} />)}  
     </>
   )
 }

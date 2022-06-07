@@ -1,5 +1,5 @@
 import { msgWelcome } from "../../components/ChatBot/bot.js";
-import { ADD_CHATBOT_INFO, GET_COUNTRIES, GET_COUNTRIES_AFRICA, GET_COUNTRIES_AMERICA, GET_COUNTRIES_ANTARTIDA, GET_COUNTRIES_ASIA, GET_COUNTRIES_DETAILS, GET_COUNTRIES_EUROPA, GET_COUNTRIES_MATCH, GET_COUNTRIES_OCEANIA, POST_ACTIVITY} from "../actions-types";
+import { ADD_CHATBOT_INFO, GET_COUNTRIES, GET_COUNTRIES_AFRICA, GET_COUNTRIES_AMERICA, GET_COUNTRIES_ANTARTIDA, GET_COUNTRIES_ASIA, GET_COUNTRIES_DETAILS, GET_COUNTRIES_EUROPA, GET_COUNTRIES_FOR_CONTINENT, GET_COUNTRIES_MATCH, GET_COUNTRIES_OCEANIA, POST_ACTIVITY} from "../actions-types";
 
 const initialState = {
     botInfo: [{bot:msgWelcome}],
@@ -37,40 +37,12 @@ const initialState = {
         }
       }
 
-      case GET_COUNTRIES_ASIA:{
+      case GET_COUNTRIES_FOR_CONTINENT:{
+        const searchContinent = action.payload[0].searchContinent
+        console.log(searchContinent)
         return {
           ...state,
-          countries: action.payload
-        }
-      }
-      case GET_COUNTRIES_AMERICA:{
-        return {
-          ...state,
-          countries: action.payload
-        }
-      }
-      case GET_COUNTRIES_AFRICA:{
-        return {
-          ...state,
-          countries: action.payload
-        }
-      }
-      case GET_COUNTRIES_ANTARTIDA:{
-        return {
-          ...state,
-          countries: action.payload
-        }
-      }
-      case GET_COUNTRIES_EUROPA:{
-        return {
-          ...state,
-          countries: action.payload
-        }
-      }
-      case GET_COUNTRIES_OCEANIA:{
-        return {
-          ...state,
-          countries: action.payload
+           countries: action.payload.filter((c) => c.continent && c.continent.toLowerCase().includes(searchContinent.toLowerCase()))
         }
       }
 
@@ -83,5 +55,5 @@ const initialState = {
     
       default:
         return state;
-    }
+    } 
   }
