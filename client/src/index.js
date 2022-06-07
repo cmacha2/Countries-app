@@ -11,10 +11,10 @@ ReactDOM.render(
   <BrowserRouter>
   <Provider store={store}>
    <Switch>
-        <Route path="/about">{/* <About /> */}</Route>
-        <Route path="/users">{/* <Users /> */}</Route>
-        <Route path="/home"><App/></Route>
-        <Route path="/"><LandingPage/></Route>
+        {/* <Route path="/about">{<About /> }</Route>
+        <Route path="/users">{/ <Users /> }</Route> */}
+        <Route path="/home" ><App/></Route>
+        <Route exact path="/"><LandingPage/></Route>
     </Switch>
   </Provider>
   </BrowserRouter>,
