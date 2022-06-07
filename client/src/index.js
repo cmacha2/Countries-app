@@ -6,15 +6,19 @@ import { Provider } from "react-redux";
 import store from "./Redux/store";
 import App from './components/App/App.jsx';
 import LandingPage from './components/LandingPage/LandingPage';
+import Error404 from './components/Error/Error404';
+import Details from './components/Details/Details';
 
 ReactDOM.render(
   <BrowserRouter>
   <Provider store={store}>
    <Switch>
-        {/* <Route path="/about">{<About /> }</Route>
-        <Route path="/users">{/ <Users /> }</Route> */}
-        <Route path="/home" ><App/></Route>
-        <Route exact path="/"><LandingPage/></Route>
+   <Route exact path="/"><LandingPage/></Route>
+        {/* <Route path="/about">{<About /> }</Route> */}
+    <Route path="/countries/:id"><Details/></Route> 
+    <Route path="/home" ><App/></Route>
+    {/* <Route path="*"><Error404/></Route> */}
+
     </Switch>
   </Provider>
   </BrowserRouter>,
