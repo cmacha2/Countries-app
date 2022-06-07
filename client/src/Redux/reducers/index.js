@@ -4,7 +4,7 @@ import { ADD_CHATBOT_INFO, GET_COUNTRIES, GET_COUNTRIES_DETAILS, GET_COUNTRIES_M
 const initialState = {
     botInfo: [{bot:msgWelcome}],
     countries: [],
-    // countriesMatch:[],
+    countriesMatch:[],
     countriesDetails:[],
     activities:[]
   }; 
@@ -23,12 +23,13 @@ const initialState = {
           countries:action.payload
         }
       }
-      // case GET_COUNTRIES_MATCH:{
-      //   return {
-      //     ...state,
-      //     countriesMatch:[ action.payload]
-      //   }
-      // }
+      case GET_COUNTRIES_MATCH:{
+        return {
+          ...state,
+          countriesMatch: action.payload
+        }
+      }
+
       case GET_COUNTRIES_DETAILS:{
         return {
           ...state,

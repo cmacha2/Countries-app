@@ -29,16 +29,20 @@ const getCountries = async (req, res) => {
       let countryFilter = db.filter((c) =>
         c.name.toLowerCase().includes(name.toLowerCase())
       );
-      if (!countryFilter.length)
+      if (!countryFilter.length){
         return res
-          .status(404)
-          .json(`No se encuentran coincidencias para el dato pasado`);
-      return res.json(countryFilter);
+        .status(404)
+        .json(`No se encuentran coincidencias para el dato pasado`);
+      }
+      let result1 = countryFilter.map((info) => {
+        return {id:info.id, name: info.name, img: info.img, continent: info.continent };
+      });
+      return res.json(result1);
     }
-    let dbformat = db.map((info) => {
-      return { name: info.name, img: info.img, continent: info.continent };
+    let result2 = db.map((info) => {
+      return {id:info.id, name: info.name, img: info.img, continent: info.continent };
     });
-    return res.json(dbformat);
+    return res.json(result2);
   } catch (error) {
     res.status(404).json(`Tuvimos un error en el proceso de busqueda`);
   }
