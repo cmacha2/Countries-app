@@ -47,11 +47,19 @@ const initialState = {
       }
 
       case GET_COUNTRIES_SORT:{
-        const searchContinent = action.payload[0].value
-        console.log(searchContinent)
+        let typeSort = action.payload.value
+        function SortArray(x, y){
+          return x.name.localeCompare(y.name);
+        }
+        if(typeSort==='sort-a-z'){
+        //  var names = state.countries.map(c=>c.name)
+          var typeSorts = state.countries.sort(SortArray)
+          console.log(typeSorts) 
+        }
+        // typeSort = el otro ordenamiento etc 
         return {
           ...state,
-           countries: state.countries.filter((c) => c.continent && c.continent.toLowerCase().includes(searchContinent.toLowerCase()))
+           countries:[...typeSorts]
         }
       }
 

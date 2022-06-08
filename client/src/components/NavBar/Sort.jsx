@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import { filterForContinent, getCountries } from "../../Redux/actions";
+import { filterForContinent, getCountries, getCountriesSort } from "../../Redux/actions";
 
 export default function Sort() {
-  const [continent, setContinent] = useState({});
+  const [sort, setSort] = useState({});
   const dispatch = useDispatch();
 
   const onChange = (e) => {
-    setContinent({
+    setSort({
       id: e.target.value,
       value: e.target.value,
     });
   };
 
   useEffect(() => {
-    Object.entries(continent).length && dispatch(filterForContinent(continent))
+      console.log(sort)
+    Object.entries(sort).length && dispatch(getCountriesSort(sort))
     //   : dispatch(getCountries());
-  }, [continent]);
+  }, [sort]);
 
   return (
     <>
@@ -30,7 +31,7 @@ export default function Sort() {
           <input
             type="radio"
             name="option"
-            value="Europe"
+            value="sort-a-z"
             onChange={onChange}
           />
           <span className="title animated fadeIn">
