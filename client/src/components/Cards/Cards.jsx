@@ -5,10 +5,7 @@ import { getCountries, getCountriesMatch } from '../../Redux/actions';
 import useQuery from '../hooks/useQuery';
 import Card from './Card'
 
-
-
-
-export default function Cards() {
+export default function Cards(props) {
   const countries = useSelector(state => state.countries);
   const dispatch = useDispatch();
   // const [flag, setFlag] = useState(false);
@@ -26,7 +23,12 @@ export default function Cards() {
 
   return (
     <>
-   { countries?.map(country =>  <Card key={country.id } country={country} />)}  
+   { countries?.map(country =>  <Card key={country.id } country={country} />)} 
+   <div>
+        <h3>Pagina : {props.currentPage}</h3>
+        <button onClick={props.prevHandler}>Prev</button>
+        <button onClick={props.prevHandler}>Prev</button>
+    </div>
     </>
   )
 }

@@ -1,5 +1,5 @@
 import { msgWelcome } from "../../components/ChatBot/bot.js";
-import  {GET_ACTIVITIES_POPULATION, GET_ALL_ACTIVITIES, GET_ALL_INFORMATION, GET_FILTER_ACTIVITIES, SortNameAZ, SortNameZA, SortPopulationAZ, SortPopulationZA } from "../actions-types";
+import  {GET_ACTIVITIES_POPULATION, GET_ALL_ACTIVITIES, GET_ALL_INFORMATION, GET_FILTER_ACTIVITIES, SHOW_ALL_ACTIVITIES, SortNameAZ, SortNameZA, SortPopulationAZ, SortPopulationZA } from "../actions-types";
 import { ADD_CHATBOT_INFO, GET_COUNTRIES, GET_COUNTRIES_SORT, GET_COUNTRIES_DETAILS, GET_COUNTRIES_FOR_CONTINENT, GET_COUNTRIES_MATCH, POST_ACTIVITY} from "../actions-types";
 
 const initialState = {
@@ -69,30 +69,44 @@ const initialState = {
         }
       }
 
-      case GET_ALL_ACTIVITIES:{
-        // console.log(action.payload?.map(c=> c.activities.length && c.activities?.map(c=>c.name)))
-        // let countriesWithActivities = action.payload?.filter(c=> c.activities.length!==0)
-        // var nameCountry = countriesWithActivities.map(c=>c.name)
-        // var countryWithActivies = countriesWithActivities.filter(c=>c.activities)
-        // let data = countryWithActivies.map(c=>c.activities.map(c=>c.name))
-        // let dataArray = new Set(data[0])
-        // let resultado = [...dataArray]
-        // let indexSelect = action.payload[0].value
-        // console.log()
-        // console.log(action.payload)
-        // console.log(action.payload[indexSelect].Countries?.map(act=>act)[indexSelect])
-
+      case SHOW_ALL_ACTIVITIES:{
         return {
           ...state,
           allActivities:[...action.payload.filter(act=>act.name)] 
         }
       }
 
-      case GET_FILTER_ACTIVITIES:{
-        console.log(action.payload)
+      case GET_ALL_ACTIVITIES:{
+
         return {
           ...state,
-        countries: action.payload
+          countries:[...action.payload.filter(c=>c.Activities.length)] 
+        }
+      }
+
+      // case GET_FILTER_ACTIVITIES:{
+      //   console.log(action.payload)
+      //   return {
+      //     ...state,
+      //   countries: action.payload
+      //   }
+      // }
+
+      case GET_FILTER_ACTIVITIES:{
+        console.log(action.payload)
+        var filterActivities = state.countries.filter((p) => {
+          let activities = p.Activities.filter( (a) => a.name.includes(action.payload));
+          if (activities && activities.length > 0) {
+              return true;
+          }
+          return false;
+         });
+        if(action.payload==='allCountries'){
+          filterActivities = state.countries.filter(c=>c.Activities.length)
+        }
+        return {
+          ...state,
+        countries: filterActivities
         }
       }
 

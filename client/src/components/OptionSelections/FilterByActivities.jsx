@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllActivies, getCountries, getCountriesSort, getFilterActivities } from "../../Redux/actions";
+import { getAllActivies, getCountries, getCountriesSort, getFilterActivities, showAllActivies } from "../../Redux/actions";
 import { ContainerMenu } from "./SortByPopulation.css";
 
 export default function FilterByActivities() {
@@ -13,7 +13,7 @@ export default function FilterByActivities() {
   };
 
   useEffect(() => {
-     dispatch(getAllActivies())
+     dispatch(showAllActivies())
   }, []);
 
   useEffect(() => {
@@ -21,10 +21,8 @@ export default function FilterByActivities() {
     // Object.entries(sort).length && dispatch(getCountriesSort(sort))
     //   : dispatch(getCountries());
     // Object.entries(nameActivity).length &&  dispatch(getFilterActivities(nameActivity))
-    if(nameActivity==='allCountries'){
-      dispatch(getCountries()) 
-    }
-    console.log(nameActivity)
+    if(nameActivity==='allCountries')dispatch(getCountries()) 
+    if(nameActivity==='allActivities')dispatch(getAllActivies()) 
     if(nameActivity!=='allCountries'&&nameActivity!=='') dispatch(getFilterActivities(nameActivity)) 
   }, [nameActivity]);
 
@@ -33,6 +31,7 @@ export default function FilterByActivities() {
      <ContainerMenu>
      <select name="activities" id="activities" className="select" onChange={onChange}>
         <option value={'allCountries'} >Filter by Activities</option>
+        <option value={'allActivities'}>All containt Activities</option>
         { allActivities && allActivities?.map((act)=><option key={act.id} value={act.name}>{act.name}</option>)}
     </select>
     </ContainerMenu>

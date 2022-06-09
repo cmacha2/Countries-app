@@ -21,28 +21,29 @@ const getApiCountries = async (req, res) => {
 const getCountries = async (req, res) => {
   try {
     let { name } = req.query;
-    var db = await Country.findAll();
+    var db = await Country.findAll({include:Activity});
     if (!db.length) {
-      db = await Country.bulkCreate(await getApiCountries());
+      await Country.bulkCreate(await getApiCountries());
+      db = await Country.findAll({include:Activity});
     }
     if (name) {
-      let countryFilter = db.filter((c) =>
+      let countriesFilter = db.filter((c) =>
         c.name.toLowerCase().includes(name.toLowerCase())
       );
-      if (!countryFilter.length){
+      if (!countriesFilter.length){
         return res
         .status(404)
         .send(`No se encuentran coincidencias para el dato pasado`);
       }
-      let result1 = countryFilter.map((info) => {
-        return {id:info.id, name: info.name, img: info.img, continent: info.continent , population:info.population};
-      });
-      return res.json(result1);
+      // let result1 = countryFilter.map((info) => {
+      //   return {id:info.id, name: info.name, img: info.img, continent: info.continent , population:info.population};
+      // });
+      return res.json(countriesFilter);
     }
-    let result2 = db.map((info) => {
-      return {id:info.id, name: info.name, img: info.img, continent: info.continent, population:info.population };
-    });
-    return res.json(result2);
+    // let result2 = db.map((info) => {
+    //   return {id:info.id, name: info.name, img: info.img, continent: info.continent, population:info.population };
+    // });
+    return res.json(db);
   } catch (error) {
     res.status(404).json(`Tuvimos un error en el proceso de busqueda`);
   }

@@ -1,4 +1,4 @@
-import { ADD_CHATBOT_INFO, GET_ALL_ACTIVITIES, GET_COUNTRIES, GET_COUNTRIES_DETAILS, GET_COUNTRIES_FOR_CONTINENT, GET_COUNTRIES_MATCH, GET_COUNTRIES_SORT, GET_FILTER_ACTIVITIES, POST_ACTIVITY } from "../actions-types";
+import { ADD_CHATBOT_INFO, GET_ALL_ACTIVITIES, GET_COUNTRIES, GET_COUNTRIES_DETAILS, GET_COUNTRIES_FOR_CONTINENT, GET_COUNTRIES_MATCH, GET_COUNTRIES_SORT, GET_FILTER_ACTIVITIES, POST_ACTIVITY, SHOW_ALL_ACTIVITIES } from "../actions-types";
 import axios from "axios"
 
 export function addChatBotInfo(payload) {
@@ -26,18 +26,28 @@ export function getCountriesDetails(id){
   }
 }
 
-export function getAllActivies(){
+export function showAllActivies(){
   return async function (dispatch){
     const {data} = await axios.get("http://localhost:3001/allActivities")
+    dispatch({type: SHOW_ALL_ACTIVITIES, payload:data})
+  }
+}
+
+export function getAllActivies(){
+  return async function (dispatch){
+    const {data} = await axios.get("http://localhost:3001/countries")
     dispatch({type: GET_ALL_ACTIVITIES, payload:data})
   }
 }
 
+// export function getFilterActivities(nameActivity){
+//   return async function (dispatch){
+//     const {data} = await axios.get(`http://localhost:3001/activities/${nameActivity}`)
+//     dispatch({type: GET_FILTER_ACTIVITIES, payload:[nameActivity,...data]})
+//   }
+// }
 export function getFilterActivities(nameActivity){
-  return async function (dispatch){
-    const {data} = await axios.get(`http://localhost:3001/activities/${nameActivity}`)
-    dispatch({type: GET_FILTER_ACTIVITIES, payload:[nameActivity,...data]})
-  }
+  return{type: GET_FILTER_ACTIVITIES, payload:nameActivity}
 }
 
 
