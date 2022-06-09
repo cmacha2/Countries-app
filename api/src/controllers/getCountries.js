@@ -35,12 +35,12 @@ const getCountries = async (req, res) => {
         .send(`No se encuentran coincidencias para el dato pasado`);
       }
       let result1 = countryFilter.map((info) => {
-        return {id:info.id, name: info.name, img: info.img, continent: info.continent };
+        return {id:info.id, name: info.name, img: info.img, continent: info.continent , population:info.population};
       });
       return res.json(result1);
     }
     let result2 = db.map((info) => {
-      return {id:info.id, name: info.name, img: info.img, continent: info.continent };
+      return {id:info.id, name: info.name, img: info.img, continent: info.continent, population:info.population };
     });
     return res.json(result2);
   } catch (error) {

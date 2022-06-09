@@ -1,4 +1,4 @@
-import { ADD_CHATBOT_INFO, GET_COUNTRIES, GET_COUNTRIES_DETAILS, GET_COUNTRIES_FOR_CONTINENT, GET_COUNTRIES_MATCH, GET_COUNTRIES_SORT, POST_ACTIVITY } from "../actions-types";
+import { ADD_CHATBOT_INFO, GET_ALL_ACTIVITIES, GET_COUNTRIES, GET_COUNTRIES_DETAILS, GET_COUNTRIES_FOR_CONTINENT, GET_COUNTRIES_MATCH, GET_COUNTRIES_SORT, GET_FILTER_ACTIVITIES, POST_ACTIVITY } from "../actions-types";
 import axios from "axios"
 
 export function addChatBotInfo(payload) {
@@ -26,6 +26,20 @@ export function getCountriesDetails(id){
   }
 }
 
+export function getAllActivies(){
+  return async function (dispatch){
+    const {data} = await axios.get("http://localhost:3001/allActivities")
+    dispatch({type: GET_ALL_ACTIVITIES, payload:data})
+  }
+}
+
+export function getFilterActivities(nameActivity){
+  return async function (dispatch){
+    const {data} = await axios.get(`http://localhost:3001/activities/${nameActivity}`)
+    dispatch({type: GET_FILTER_ACTIVITIES, payload:[nameActivity,...data]})
+  }
+}
+
 
 export function postActivity(body){
   return async function (dispatch){
@@ -40,6 +54,7 @@ export function filterForContinent(searchContinent){
     dispatch({type: GET_COUNTRIES_FOR_CONTINENT, payload:[ searchContinent,...data] })
   }
 }
+
 
 export function getCountriesSort(data){
   return {

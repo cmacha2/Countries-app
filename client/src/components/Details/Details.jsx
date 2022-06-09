@@ -12,7 +12,6 @@ export default function Details() {
     useEffect(() => {
         dispatch(getCountriesDetails(id))
     }, []);
-    console.log(countriesDetails.Activities)
 
   return (
     <div>

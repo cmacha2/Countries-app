@@ -1,4 +1,5 @@
 import { msgWelcome } from "../../components/ChatBot/bot.js";
+import  {GET_ACTIVITIES_POPULATION, GET_ALL_ACTIVITIES, GET_ALL_INFORMATION, GET_FILTER_ACTIVITIES, SortNameAZ, SortNameZA, SortPopulationAZ, SortPopulationZA } from "../actions-types";
 import { ADD_CHATBOT_INFO, GET_COUNTRIES, GET_COUNTRIES_SORT, GET_COUNTRIES_DETAILS, GET_COUNTRIES_FOR_CONTINENT, GET_COUNTRIES_MATCH, POST_ACTIVITY} from "../actions-types";
 
 const initialState = {
@@ -6,7 +7,8 @@ const initialState = {
     countries: [],
     // countriesMatch:[],
     countriesDetails:{},
-    activities:[]
+    postActivities:[],
+    allActivities:[]
   }; 
 
   export default function rootReducer(state = initialState, action) {
@@ -42,31 +44,62 @@ const initialState = {
         console.log(searchContinent)
         return {
           ...state,
-           countries: action.payload.filter((c) => c.continent && c.continent.toLowerCase().includes(searchContinent.toLowerCase()))
+          countries: action.payload.filter((c) => c.continent && c.continent.toLowerCase().includes(searchContinent.toLowerCase()))
+          // countries: state.countries.filter((c) => c.continent && c.continent.toLowerCase().includes(searchContinent.toLowerCase()))
         }
       }
 
       case GET_COUNTRIES_SORT:{
-        let typeSort = action.payload.value
-        function SortArray(x, y){
-          return x.name.localeCompare(y.name);
+        var getSort;
+        if(action.payload.value==='sortName-a-z'){
+          getSort = SortNameAZ
         }
-        if(typeSort==='sort-a-z'){
-        //  var names = state.countries.map(c=>c.name)
-          var typeSorts = state.countries.sort(SortArray)
-          console.log(typeSorts) 
+        if(action.payload.value === 'sortName-z-a'){
+          getSort = SortNameZA
         }
-        // typeSort = el otro ordenamiento etc 
+        if(action.payload.value === 'sortPopulation-a-z'){
+          getSort = SortPopulationAZ
+        }
+        if(action.payload.value === 'sortPopulation-z-a'){
+          getSort = SortPopulationZA
+        }
         return {
           ...state,
-           countries:[...typeSorts]
+           countries:[...state.countries.sort(getSort)]
+        }
+      }
+
+      case GET_ALL_ACTIVITIES:{
+        // console.log(action.payload?.map(c=> c.activities.length && c.activities?.map(c=>c.name)))
+        // let countriesWithActivities = action.payload?.filter(c=> c.activities.length!==0)
+        // var nameCountry = countriesWithActivities.map(c=>c.name)
+        // var countryWithActivies = countriesWithActivities.filter(c=>c.activities)
+        // let data = countryWithActivies.map(c=>c.activities.map(c=>c.name))
+        // let dataArray = new Set(data[0])
+        // let resultado = [...dataArray]
+        // let indexSelect = action.payload[0].value
+        // console.log()
+        // console.log(action.payload)
+        // console.log(action.payload[indexSelect].Countries?.map(act=>act)[indexSelect])
+
+        return {
+          ...state,
+          allActivities:[...action.payload.filter(act=>act.name)] 
+        }
+      }
+
+      case GET_FILTER_ACTIVITIES:{
+        console.log(action.payload)
+        return {
+          ...state,
+        countries: action.payload
         }
       }
 
       case POST_ACTIVITY:{
         return {
           ...state,
-          activities:[...state.activities, action.payload]
+          postActivities:[...state.postActivities.includes()]
         }
       }
     
