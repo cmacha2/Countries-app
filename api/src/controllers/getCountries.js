@@ -33,7 +33,7 @@ const getCountries = async (req, res) => {
       if (!countriesFilter.length){
         return res
         .status(404)
-        .send(`No se encuentran coincidencias para el dato pasado`);
+        .json({msg:`No se encuentran coincidencias para el dato pasado`});
       }
       // let result1 = countryFilter.map((info) => {
       //   return {id:info.id, name: info.name, img: info.img, continent: info.continent , population:info.population};

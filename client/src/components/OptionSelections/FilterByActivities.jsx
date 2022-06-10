@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllActivies, getCountries, getCountriesSort, getFilterActivities, showAllActivies } from "../../Redux/actions";
-import { ContainerMenu } from "./SortByPopulation.css";
+import { ContainerMenu } from "./FilterByActivities.css";
 
 export default function FilterByActivities() {
   const [nameActivity, setNameActivity] = useState('');

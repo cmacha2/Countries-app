@@ -17,13 +17,14 @@ export default function Details() {
     <div>
          <h1>Detalles</h1>
          <h2>{countriesDetails.name}</h2>
+         <span>{countriesDetails.id}</span>
          <span>{countriesDetails.capital}</span>
          <span>{countriesDetails.subregion}</span>
          <span>{countriesDetails.continent}</span>
          <span>{countriesDetails.area}</span>
          <span>{countriesDetails.population}</span>
         <img src={countriesDetails.img} width={200} alt={countriesDetails.name} />
-        {  countriesDetails.Activities?.map(act => <div>
+        {  countriesDetails.Activities?.map(act => <div key={act.id}>
             <span>{act.name}</span>
          <span>{act.difficulty}</span>
          <span>{act.duration}</span>

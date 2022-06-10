@@ -43,7 +43,7 @@ const onSubmit = (e) => {
       </div>
       <div className="chats">
         <div  className="msgContainer">
-        {stateBot.length!==0  && stateBot.map((msg,i) => <Messages key={i} index={i} check={check} msg={msg}/>)}
+        {stateBot.length  && stateBot.map((msg,i) => <Messages key={i} index={i} check={check} msg={msg}/>)}
         </div >
       </div>
       <div className="classForm">

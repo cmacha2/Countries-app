@@ -8,6 +8,7 @@ export const  GET_COUNTRIES_SORT = "GET_COUNTRIES_SORT"
 export const SHOW_ALL_ACTIVITIES = "SHOW_ALL_ACTIVITIES"
 export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES"
 export const GET_FILTER_ACTIVITIES = "GET_FILTER_ACTIVITIES"
+export const CURRENT_PAGE = "CURRENT_PAGE"
 
 export function SortNameAZ(a, b){
     return a.name.localeCompare(b.name);

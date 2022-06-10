@@ -16,8 +16,8 @@ export default function FilterByContinent() {
 
   useEffect(() => {
     Object.entries(continent).length
-      ? dispatch(filterForContinent(continent))
-       : dispatch(getCountries());
+      && dispatch(filterForContinent(continent))
+      //  : dispatch(getCountries());
   }, [continent]);
 
   return (

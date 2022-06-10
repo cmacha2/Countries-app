@@ -1,4 +1,4 @@
-import { ADD_CHATBOT_INFO, GET_ALL_ACTIVITIES, GET_COUNTRIES, GET_COUNTRIES_DETAILS, GET_COUNTRIES_FOR_CONTINENT, GET_COUNTRIES_MATCH, GET_COUNTRIES_SORT, GET_FILTER_ACTIVITIES, POST_ACTIVITY, SHOW_ALL_ACTIVITIES } from "../actions-types";
+import { ADD_CHATBOT_INFO, CURRENT_PAGE, GET_ALL_ACTIVITIES, GET_COUNTRIES, GET_COUNTRIES_DETAILS, GET_COUNTRIES_FOR_CONTINENT, GET_COUNTRIES_MATCH, GET_COUNTRIES_SORT, GET_FILTER_ACTIVITIES, HANDLER_PAGINATION, POST_ACTIVITY, SHOW_ALL_ACTIVITIES } from "../actions-types";
 import axios from "axios"
 
 export function addChatBotInfo(payload) {
@@ -50,6 +50,12 @@ export function getFilterActivities(nameActivity){
   return{type: GET_FILTER_ACTIVITIES, payload:nameActivity}
 }
 
+export function setCurrentPage(currentPage){
+  return {
+    type:CURRENT_PAGE,
+    payload:currentPage
+  }
+}
 
 export function postActivity(body){
   return async function (dispatch){

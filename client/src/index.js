@@ -16,8 +16,8 @@ ReactDOM.render(
    <Route exact path="/"><LandingPage/></Route>
         {/* <Route path="/about">{<About /> }</Route> */}
     <Route path="/countries/:id"><Details/></Route> 
-    <Route path="/home" ><App/></Route>
-    {/* <Route path="*"><Error404/></Route> */}
+    <Route exact path="/home" ><App/></Route>
+    <Route path="*"><Error404/></Route>
 
     </Switch>
   </Provider>
