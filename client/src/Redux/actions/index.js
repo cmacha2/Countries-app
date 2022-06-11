@@ -7,8 +7,9 @@ export function addChatBotInfo(payload) {
 
 export function getCountries(){
   return async function (dispatch){
-    const {data} = await axios.get("http://localhost:3001/countries")
-    dispatch({type: GET_COUNTRIES, payload:data })
+    const {data,status} = await axios.get("http://localhost:3001/countries")
+    console.log(status)
+    dispatch({type: GET_COUNTRIES, payload:[data,status] })
   }
 }
 

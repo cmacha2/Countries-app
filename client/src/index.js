@@ -8,13 +8,14 @@ import App from './components/App/App.jsx';
 import LandingPage from './components/LandingPage/LandingPage';
 import Error404 from './components/Error/Error404';
 import Details from './components/Details/Details';
+import FormActivity from './components/FormActivity/FormActivity';
 
 ReactDOM.render(
   <BrowserRouter>
   <Provider store={store}>
    <Switch>
    <Route exact path="/"><LandingPage/></Route>
-        {/* <Route path="/about">{<About /> }</Route> */}
+    <Route exact path="/activities">{<FormActivity /> }</Route>
     <Route path="/countries/:id"><Details/></Route> 
     <Route exact path="/home" ><App/></Route>
     <Route path="*"><Error404/></Route>

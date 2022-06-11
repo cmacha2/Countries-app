@@ -12,6 +12,7 @@ const ITEMS_FOR_PAGE = 10;
 export default function Cards() {
   const countries = useSelector(state => state.countries);
   const currentPage = useSelector(state => state.currentPage)
+  const status = useSelector(state => state.status);
   const query = useQuery()
   const search = query.get('name')
   const dispatch = useDispatch();
@@ -39,12 +40,15 @@ export default function Cards() {
   return (
     <Container>
     <div className='buttonPages'>
-        <button disabled={currentPage===0} onClick={prevPage}>Prev</button>
-        <button disabled={currentContries.length<9 || currentPage===240} onClick={nextPage}>Next</button>
-  </div>
-    {!countries.length && <Loading/>}
+    <button disabled={currentPage===0} onClick={prevPage}>Prev</button>
+    <button disabled={currentContries.length<9 || currentPage===240} onClick={nextPage}>Next</button>
+    </div>
+
+  
+    {!status && <Loading/>}
+    <div className='cards'>
    {  currentContries?.map(country =>  <Card key={country.id} country={country} />)} 
-   
+   </div>
     </Container>
   )
 }

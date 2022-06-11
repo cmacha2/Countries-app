@@ -34,6 +34,9 @@ export default function SearchBar() {
     e.preventDefault();
     history.replace(`?name=${country}`);
   };
+  useEffect(() => {
+    history.replace(`/home`)
+  }, []);
   const onChange = (e)=>{
     setCountry(e.target.value)
 
@@ -64,8 +67,9 @@ export default function SearchBar() {
           id="country"
           value={country}
           onChange={onChange}
+          placeholder="Search..."
         />
-        <input className="buttonSearch" type="submit" onClick={onSubmit}/>
+        <input className="input-submit" type="submit" onClick={onSubmit}/>
       </form>
       {/* <button onClick={()=>dispatch(filterForContinent({id:'continente', value:'africa'}))}>Continente americano</button>  */}
   
@@ -73,6 +77,7 @@ export default function SearchBar() {
       <SortByName/>
       <SortByPopulation/>
       <FilterByActivities/>
+      <button type="submit" onClick={()=> history.replace(`/activities`)}>Create Activities</button>
     </Container>
   );
 }

@@ -9,7 +9,8 @@ const initialState = {
     countriesDetails:{},
     postActivities:[],
     allActivities:[],
-    currentPage:0
+    currentPage:0,
+    status:0
   }; 
 
   export default function rootReducer(state = initialState, action) {
@@ -25,7 +26,8 @@ const initialState = {
         return {
           ...state,
           currentPage:0,
-          countries:action.payload
+          countries:action.payload[0].slice(1),
+          status:action.payload[1]
         }
       }
       case GET_COUNTRIES_MATCH:{
@@ -47,15 +49,17 @@ const initialState = {
       case GET_COUNTRIES_FOR_CONTINENT:{
         const searchContinent = action.payload[0].value
         console.log(searchContinent)
+        console.log(searchContinent)
         return {
           ...state,
           currentPage:0,
-          countries: action.payload.filter((c) => c.continent && c.continent.toLowerCase().includes(searchContinent.toLowerCase()))
+          countries: action.payload.slice(1).filter((c) => c.continent && c.continent.toLowerCase().includes(searchContinent.toLowerCase()))
           // countries: state.countries.filter((c) => c.continent && c.continent.toLowerCase().includes(searchContinent.toLowerCase()))
         }
       }
 
       case GET_COUNTRIES_SORT:{
+        console.log(action.payload)
         var getSort;
         if(action.payload.value==='sortName-a-z'){
           getSort = SortNameAZ
@@ -102,7 +106,6 @@ const initialState = {
       // }
 
       case GET_FILTER_ACTIVITIES:{
-        console.log(action.payload)
         var filterActivities = state.countries.filter((p) => {
           let activities = p.Activities.filter( (a) => a.name.includes(action.payload));
           if (activities && activities.length > 0) {
