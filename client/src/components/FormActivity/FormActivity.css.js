@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 
-export const Container = styled.body`
+export const Container = styled.div`
 .form-register {
   width: 400px;
   background: #24303c;

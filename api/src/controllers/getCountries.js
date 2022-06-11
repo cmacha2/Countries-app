@@ -45,6 +45,7 @@ const getCountries = async (req, res) => {
     // });
     return res.json(db);
   } catch (error) {
+    console.error(error)
     res.status(404).json(`Tuvimos un error en el proceso de busqueda`);
   }
 };

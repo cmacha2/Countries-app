@@ -23,18 +23,30 @@ const initialState = {
         }
       }
       case GET_COUNTRIES:{
+        const [countries,status] = action.payload
         return {
           ...state,
           currentPage:0,
-          countries:action.payload[0].slice(1),
-          status:action.payload[1]
+          countries:countries,
+          status:status,
         }
       }
       case GET_COUNTRIES_MATCH:{
+        console.log(action.payload)
+        if(action.payload>=400){
+          return {
+            ...state,
+            currentPage:0,
+            countries:[],
+            status:404
+          }
+        }
+        const [countries,status] = action.payload
         return {
           ...state,
           currentPage:0,
-          countries:action.payload
+          countries:countries,
+          status:status
         }
       }
 
@@ -53,7 +65,7 @@ const initialState = {
         return {
           ...state,
           currentPage:0,
-          countries: action.payload.slice(1).filter((c) => c.continent && c.continent.toLowerCase().includes(searchContinent.toLowerCase()))
+          countries: action.payload.slice(0).filter((c) => c.continent && c.continent.toLowerCase().includes(searchContinent.toLowerCase()))
           // countries: state.countries.filter((c) => c.continent && c.continent.toLowerCase().includes(searchContinent.toLowerCase()))
         }
       }

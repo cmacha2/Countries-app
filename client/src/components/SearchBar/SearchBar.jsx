@@ -34,9 +34,7 @@ export default function SearchBar() {
     e.preventDefault();
     history.replace(`?name=${country}`);
   };
-  useEffect(() => {
-    history.replace(`/home`)
-  }, []);
+
   const onChange = (e)=>{
     setCountry(e.target.value)
 
@@ -64,7 +62,6 @@ export default function SearchBar() {
         <input
         className="input-search"
           type="text"
-          id="country"
           value={country}
           onChange={onChange}
           placeholder="Search..."

@@ -8,15 +8,19 @@ export function addChatBotInfo(payload) {
 export function getCountries(){
   return async function (dispatch){
     const {data,status} = await axios.get("http://localhost:3001/countries")
-    console.log(status)
     dispatch({type: GET_COUNTRIES, payload:[data,status] })
   }
 }
 
 export function getCountriesMatch(name){
   return async function (dispatch){
-    const {data} = await axios.get(`http://localhost:3001/countries?name=${name}`)
-    dispatch({type: GET_COUNTRIES_MATCH, payload:data })
+    try {
+      const {data ,status} = await axios.get(`http://localhost:3001/countries?name=${name}`)
+      dispatch({type: GET_COUNTRIES_MATCH, payload:[data,status] })
+    } catch (error) {
+      return dispatch({type: GET_COUNTRIES_MATCH, payload:404 })
+    }
+    
   }
 }
 
@@ -61,6 +65,7 @@ export function setCurrentPage(currentPage){
 export function postActivity(body){
   return async function (dispatch){
     const {data} = await axios.post(`http://localhost:3001/activities`,body)
+    
     dispatch({type: POST_ACTIVITY, payload:data })
   }
 }
