@@ -8,7 +8,7 @@ const getApiCountries = async (req, res) => {
       id: x.cca3,
       name: x.name.common,
       capital: x.capital ? x.capital.toString() : x.region,
-      img: x.flags[0],
+      img: x.flags[1],
       continent: x.continents.toString(),
       subregion: x.subregion || x.region,
       area: x.area,

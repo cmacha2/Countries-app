@@ -136,6 +136,7 @@ const initialState = {
       }
 
       case CURRENT_PAGE:{
+        console.log(action.payload)
         return{
           ...state,
           currentPage:action.payload

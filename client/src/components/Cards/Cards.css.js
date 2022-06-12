@@ -2,37 +2,50 @@ import styled from "styled-components"
 
 
 export const Container = styled.div`
- .buttonPages{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &>button{
-            background-color: #202C37;
-            padding:8px 12px;
-            color:#eeeeee;
-            border:1px solid #dddddd;
-            cursor:pointer;
-            border-radius: 5px;
-        }
-    }
-    /* background-color:#202C37;
-    height: 100vh;
+ body {
+    padding: 0;
     margin: 0;
+    background-color: #17141d;
+    color: white;
+    font-family: 'DM Mono', monospace;
+}
+
+.card-list {
     display: grid;
-    place-items: center;
-    */
-    .cards{
-        display: flex;
-        padding: 3rem;
-        overflow-x: scroll;
-    }
-    .cards::-webkit-scrollbar{
-        width: 10px;
-        height: 10px;
-    }
-    .cards::-webkit-scrollbar-thumb{
-        background-color: #201c29;
-        border-radius: 10px;
-        box-shadow: inset 2px 2px 2px hsla(0,0%,100%,0.25) , inset -2px -2px 2px rgba(0, 0, 0, 0.25);
-    }
+    padding: 40px;
+    gap:30px;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 330px);
+}
+ .buttonPages{
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     &>button{
+        padding:8px 12px ;
+        background-color: #202C37;
+        color:#eeeeee;
+        cursor:pointer;
+        margin: 1rem;
+
+        border-radius: 5px;
+        border: none;
+        -webkit-box-shadow: 0px 0px 14px -1px rgba(20,19,20,1);
+        -moz-box-shadow: 0px 0px 14px -1px rgba(20,19,20,1);
+        box-shadow: 0px 0px 14px -1px rgba(20,19,20,1);
+
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+     }
+ }
 `
+
+
+
+
+
+
+
+

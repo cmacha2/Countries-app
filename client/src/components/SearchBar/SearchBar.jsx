@@ -6,48 +6,37 @@ import SortByName from "../OptionSelections/SortByName";
 import FilterByContinent from "../OptionSelections/FilterByContinent";
 import FilterByActivities from "../OptionSelections/FilterByActivities";
 import { Container } from "./SearchBar.css";
+import useQuery from "../hooks/useQuery";
+import { getCountries, getCountriesMatch } from "../../Redux/actions";
+import { useDebounce } from "../hooks/useDebounce";
 
 export default function SearchBar() {
   const [country, setCountry] = useState("");
   const [flag, setFlag] = useState(false);
   const history = useHistory(); 
+  const query = useQuery()
+  const search = query.get('name')
   const dispatch = useDispatch();
   const [continent, setContinent] = useState({});
 
-// const timer = useRef(null)
-    
-// useEffect(() => {
-//     function searchQuery(){
-//         clearTimeout(timer.current)
-//     timer.current = setTimeout(() => {
-//         history.replace(`?name=${country}`)
-//     },500)
-//    }
-//    console.log(history.location.search)
-//    if(history.location.search=== "?name="){
-//     history.replace("/")
-//    }
-//    country && searchQuery()
-// },[country])
+  const debouncedSearch =  useDebounce(search, 300)
+
+useEffect(() => {
+  search ? dispatch(getCountriesMatch(search)) : dispatch(getCountries())
+}, [search]);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    history.replace(`?name=${country}`);
+    // history.replace(`?name=${country}`);
   };
 
+  useEffect(() => {
+    history.replace()
+  }, []);
+  
   const onChange = (e)=>{
     setCountry(e.target.value)
-
-
-    // clearTimeout(timer.current)
-    //     timer.current = setTimeout(() => {
-    //         history.replace(`?name=${country}`)
-    //     },1000)
-
-
-    // setTimeout(()=>{
-    //     history.replace(`?name=${country}`) //----------------------------->>> AQUI se me queda atras una letra el query osea cuando borro siempre queda una letra.... recutificar
-    // },1500)
+    history.replace(`?name=${country}`);
     }
 
 
