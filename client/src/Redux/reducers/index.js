@@ -5,7 +5,7 @@ import { ADD_CHATBOT_INFO, GET_COUNTRIES, GET_COUNTRIES_SORT, GET_COUNTRIES_DETA
 const initialState = {
     botInfo: [{bot:msgWelcome}],
     countries: [],
-    // countriesMatch:[],
+    allCountries:[],
     countriesDetails:{},
     postActivities:[],
     allActivities:[],
@@ -28,6 +28,7 @@ const initialState = {
           ...state,
           currentPage:0,
           countries:countries,
+          allCountries:countries,
           status:status,
         }
       }

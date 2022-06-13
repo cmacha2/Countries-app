@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { getCountries } from '../../Redux/actions';
 import { Container } from './FormActivity.css'
 
 export default function FormActivity() {
+    const allCountries = useSelector(state => state.allCountries);
+    const dispatch = useDispatch();
+    const [countries, setCountries] = useState([]);
+    if(!allCountries.length)dispatch(getCountries())
+
+    const  onChange = (e)=>{
+        setCountries([...countries,{id:e.target.value}])
+    }
+    console.log(countries)
   return (
       <Container>
 
@@ -15,16 +26,14 @@ export default function FormActivity() {
   </section> */}
   <div className='card'>
 
-
+    <h3>Name</h3>
     <div className='container-name'>
-        <h3>Name</h3>
-    <input classNameName="name" type="text"  placeholder="Ingrese el nombre"/>
+    <input className="name" type="text"  placeholder="Ingrese el nombre"/>
     </div>
   
-
-    <div className='select-time'>
     <h3>Time</h3>
-    <input type="text"/>
+    <div className='select-time'>
+    <input type="text" className='time'/>
     <select name="activities" id="activities" className="select" >
         <option value={'allTime'} >Select time</option>
         <option >minutos</option>
@@ -35,7 +44,7 @@ export default function FormActivity() {
     </select>
     </div>
 
-  <h3>Difficulty</h3>
+<h3>Difficulty</h3>
 <div className='container-difficulty'>
 <label className="container">One
   <input type="radio" name="radio"/>
@@ -58,6 +67,7 @@ export default function FormActivity() {
   <span className="checkmark"></span>
 </label>
 </div>
+
 <h3>Season</h3>
 <div className='container-temporate'>
 <label className="container">Primavera
@@ -78,6 +88,16 @@ export default function FormActivity() {
 </label>
 </div>
 
+<h3>Countries</h3>
+<div className='countries'>
+<select id="activities" className="select-countries" onChange={onChange}>
+        <option >Select Countries</option>
+        {allCountries?.map((c,i)=> <option key={i} value={c.id} value2={c.name}>{c.name}</option>)}
+</select>
+<div className='countries-selected'>
+   { countries?.map(c=><label className='country' key={c.id}>{c.id}</label>)}
+</div>
+</div>
 </div>
 </Container>
   )

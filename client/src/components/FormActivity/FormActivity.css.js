@@ -2,21 +2,96 @@ import styled from "styled-components"
 
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+display: flex;
+justify-content: center;
+align-items: center;
+padding-top: 7rem;
+&>h3{
+  margin: 0.5rem;
+  margin-top: 1rem;
+}
+  .card{
+    width: 600px;
+    height: 500px;
+    background-color: #2B3743;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 2rem;
+  }
+  
   .container-name{
+    margin: 0.5rem;
     .name{
-      width: 10px;
+      width: 15rem;
+      background: #24303c;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      border: 1px solid #1f53c5;
+      font-family: 'calibri';
+      font-size: 18px;   
+      color: white;
+    }
+
+  }
+  .select-time{
+    margin: 0.5rem;
+    display: flex;  
+    .time{
+      width: 5rem;
+      background: #24303c;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      border: 1px solid #1f53c5;
+      font-family: 'calibri';
+      font-size: 18px;   
+      color: white;
+    }
+    .select{
+      width: 8rem;
+      background: #24303c;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      border: 1px solid #1f53c5;
+      font-family: 'calibri';
+      font-size: 18px;   
+      color: white;
+        
+    cursor:pointer;
+    border-radius: 5px;
+    border: none;
+    } 
+    .select:focus,
+    .select:hove{
+    outline: none;
+    border:1px solid #dddddd;
+    }
+    .select option{
+    /* background: #ffffff; */
+    background-color:  #202C37;
     }
   }
+
+
+
   .container-difficulty{
     display: flex;
     flex-direction: row;
+    margin: 0.5rem;
   }
   .container-temporate{
     display: flex;
     flex-direction: row;
+    margin: 0.5rem;
   }
+
  .container {
   display: block;
   position: relative;
@@ -28,6 +103,7 @@ export const Container = styled.div`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  margin: 0.6rem;
 }
 
 /* Hide the browser's default radio button */
@@ -80,6 +156,53 @@ export const Container = styled.div`
   height: 8px;
   border-radius: 50%;
   background: white;
+}
+
+.countries{
+  margin: 0.5rem;
+    display: flex; 
+.select-countries{
+      width: 10rem;
+      background: #24303c;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      border: 1px solid #1f53c5;
+      font-family: 'calibri';
+      font-size: 18px;   
+      color: white;
+        
+      cursor:pointer;
+      border-radius: 5px;
+      border: none;
+    
+    .select-countries:focus,
+    .select-countries:hove{
+    outline: none;
+    border:1px solid #dddddd;
+    }
+    .select-countries option{
+    /* background: #ffffff; */
+    background-color:  #202C37;
+    }
+  }
+  .countries-selected{
+    width: 22rem;
+    height: auto;
+    background-color: #dddddd;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 15px;
+    flex-wrap: wrap;
+    .country{
+      font-size: 1.2rem;
+      padding: 0.3rem;
+      width: 3.8rem;
+      background-color:#24303c;
+      border-radius: 0.5rem;
+    }
+  }
 }
 `
 

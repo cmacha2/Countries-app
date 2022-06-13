@@ -7,14 +7,14 @@ export const Container = styled.div`
     margin: 0;
     color:  #ddd;
     font-family: 'Poppins', sans-serif;
-
+    font-size: 1.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 7rem;
     .card{
-        width: 350px;
-        height: 460px;
+        width: 430px;
+        height: 550px;
         background-color: #2B3743;
         margin: 20px;
         border-radius: 20px;
@@ -23,11 +23,11 @@ export const Container = styled.div`
     }
     .circle{
         /* position: relative; */
-        clip-path: circle(220px at center 0);
+        clip-path: circle(230px at center 0);
         text-align: center;
         &>img{
-            width: 21.8rem;
-            height: 13.7rem;
+            width: 27rem;
+            height: 15.7rem;
             border-radius: 20px;
         }
     }

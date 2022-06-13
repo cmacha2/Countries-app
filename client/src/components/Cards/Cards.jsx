@@ -6,6 +6,7 @@ import Error404 from '../Error/Error404';
 import { useDebounce } from '../hooks/useDebounce';
 import useQuery from '../hooks/useQuery';
 import { Loading } from '../Loanding/Loading';
+import { NoResults } from '../Loanding/NoResult';
 import Card from './Card'
 import { Container } from './Cards.css';
 
@@ -41,7 +42,7 @@ export default function Cards() {
     <Container>
     
     {!status && <Loading/>}
-    {!currentCountries.length && status && <Loading/>}
+    {!currentCountries.length && status && <NoResults/>}
     <div className='card-list'>
    {  currentCountries?.map(country =>  <Card key={country.id} country={country} />)} 
    </div>
