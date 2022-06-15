@@ -11,11 +11,13 @@ export const Container = styled.div`
 }
 
 .card-list {
-    display: grid;
-    padding: 40px;
-    gap:30px;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    grid-template-columns: repeat(auto-fill, 330px);
+    flex-direction: row;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    
 }
  .buttonPages{
      display: flex;

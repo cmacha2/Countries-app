@@ -13,16 +13,16 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     transition: .2s;
-    margin: 0;
+    margin: 1.3rem;
     scroll-snap-align: start;
     clear: both;
     position: relative;
 }
-.card:nth-child(9){ 
+/* .card:nth-child(9){ 
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .card:focus-within~.card, .card:hover~.card {
     transform: translateX(130px);

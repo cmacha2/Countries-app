@@ -31,10 +31,11 @@ export default function Details() {
          <span>Continent: {countriesDetails.continent}</span>
          <span>Area: {countriesDetails.area} km2</span>
          <span>Population: {countriesDetails.population}</span><br />
-        <button onClick={()=>history.replace(`/home`)}>Back</button> 
+       
         </div>
 
       </div>
+      <button className='back-button' onClick={()=>history.replace(`/home`)}>Back</button> 
       </Container>
       <ContainerActivities>
      { countriesDetails.Activities?.map(act => <Activity key={act.name} act={act}/>)}

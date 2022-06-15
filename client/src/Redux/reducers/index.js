@@ -149,7 +149,7 @@ const initialState = {
         return {
           ...state,
           currentPage:0,
-          postActivities:[...state.postActivities.includes()]
+          postActivities:action.payload
         }
       }
     

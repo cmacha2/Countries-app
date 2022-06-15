@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
             type:DataTypes.STRING,
         },
         season:{
-            type:DataTypes.ENUM('Verano', 'Otoño', 'Invierno', 'Primavera'),
+            type:DataTypes.ENUM('Summer', 'Fall', 'Winter', 'Spring'),
             set(value) {
                 this.setDataValue('season', value[0].toUpperCase() + value.slice(1));
               }

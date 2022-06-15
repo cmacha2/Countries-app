@@ -11,12 +11,12 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 7rem;
+    padding-top: 4rem;
     .card{
         width: 430px;
         height: 550px;
         background-color: #2B3743;
-        margin: 20px;
+        margin: 20px 0 20px 4rem;
         border-radius: 20px;
         box-shadow: 0 15px 25px rgba(0,0,0,0.2);
         transition: 0.5s;
@@ -38,8 +38,10 @@ export const Container = styled.div`
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding-bottom: 2rem;
-        &>button{
+        /* padding-bottom: 2rem; */
+        
+    }
+    .back-button{
             background: linear-gradient(90deg,#ff8a00,#e52e71);
             text-shadow: none;
             -webkit-text-fill-color: transparent;
@@ -56,18 +58,18 @@ export const Container = styled.div`
             border-radius: 2rem;
             padding: .1rem .85rem .25rem;
             position: relative;
+            right: 57%;
+            top: -16.45rem;
         }
-        &>button:hover{
+        .back-button:hover{
             background-clip: text;
             border-color: white;
         }
-    }
-   
     
 `
 
 export const ContainerActivity = styled.div`
-        width: 200px;
+        width: 180px;
         height:150px;
         background-color: #2B3743;
         margin: 20px;
@@ -79,6 +81,7 @@ export const ContainerActivity = styled.div`
         justify-content: center;
         align-items: center;
         color: #ddd;
+        /* margin-left: -2rem; */
 `
 
 
@@ -86,5 +89,7 @@ export const ContainerActivities = styled.div`
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-items: center;
+        
+        align-items: center
+        
 `
