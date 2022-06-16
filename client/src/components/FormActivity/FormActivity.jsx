@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCountries, postActivity } from "../../Redux/actions";
-import { Container, ContainerModal } from "./FormActivity.css";
+import { BackButton, Container, ContainerModal } from "./FormActivity.css";
 import activitylogo from "./activityoutdoor.png";
 import validate from "./validate";
 import { useHistory } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import Themes from "../Theme/Themes";
 
 export default function FormActivity() {
+  const theme = useSelector(state => state.theme);
   const allCountries = useSelector((state) => state.allCountries);
   const [modal, setModal] = useState(false);
   const [info, setInfo] = useState({});
   const dispatch = useDispatch();
   const history = useHistory();
   const [countries, setCountries] = useState([]);
+  
   if (!allCountries.length) dispatch(getCountries());
   const [input, setInput] = useState({
     name: "",
@@ -37,6 +41,7 @@ export default function FormActivity() {
     });
     dispatch(postActivity(input)) && setModal(true);
     setInfo(input)
+    
     setInput({name: "",duration: "",difficulty: 0,season: "",ids: [],})
     e.target.reset()
     setCountries([])
@@ -83,6 +88,7 @@ export default function FormActivity() {
   }
 
   return (
+    <ThemeProvider theme={Themes[theme ? 'dark' : 'light']}>
     <Container type="submit" onSubmit={onSubmit}>
       <div className="card">
         <img src={activitylogo} alt="activity-logo" className="activity-logo" />
@@ -277,7 +283,8 @@ export default function FormActivity() {
           </div>
         )}
       </ContainerModal>
-      <button onClick={()=>history.replace(`/home`)} className="button-back">Back</button> 
     </Container>
+    <BackButton onClick={()=>history.replace(`/home`)}>Back</BackButton> 
+    </ThemeProvider>
   );
 }

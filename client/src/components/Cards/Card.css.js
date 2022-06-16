@@ -10,7 +10,8 @@ export const Container = styled.div`
     border-radius: 16px;
    /*  background: #2B3743; */
    background:${({theme})=> theme.bgc};
-    box-shadow: -1rem 0 3rem #000;
+    /* box-shadow: -0.5rem 0 3rem #000; */
+    box-shadow: 15px 15px 25px 15px rgba(0,0,0,0.2);
     display: flex;
     flex-direction: column;
     transition: .2s;

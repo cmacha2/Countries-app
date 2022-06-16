@@ -6,13 +6,10 @@ import NavBar from "../NavBar/NavBar.jsx";
 import SearchBar from "../SearchBar/SearchBar";
 import Themes from "../Theme/Themes.js";
 import { ThemeProvider } from "styled-components";
-import Switch from "../Switch/Switch.jsx";
 import styled from "styled-components";
 
 export default function App() {
-  const [localTheme, setLocalTheme] = useState('dark');
   const theme = useSelector(state => state.theme);
-  console.log(theme)
   return (
       <ThemeProvider theme={Themes[theme ? 'dark' : 'light']}>
         <ContainerApp>
@@ -25,7 +22,8 @@ export default function App() {
 }
 
 const ContainerApp = styled.div`
-  background-color: ${({theme})=> theme.bgc};
+  height: 100vh;
+  background: ${({theme})=> theme.bgc};
   color: ${({theme})=> theme.text};
-  width: 100%;
+
 `

@@ -1,9 +1,13 @@
 import styled from "styled-components"
 
+export const WrapperDetails = styled.div`
+height: 100vh;
+background-color: ${({theme})=> theme.bgc};
+`
 
-export const Container = styled.div`
+export const ContainerDetails = styled.div`
     
-    padding: 0;
+    padding: 2rem;
     margin: 0;
     color:  ${({theme})=> theme.text};
     font-family: 'Poppins', sans-serif;
@@ -11,14 +15,15 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 4rem;
+    padding-top: 5.5rem;
+
     .card{
         width: 430px;
         height: 550px;
         background-color:${({theme})=> theme.bgc};
         margin: 20px 0 20px 4rem;
         border-radius: 20px;
-        box-shadow: 15px 15px 25px 5px rgba(0,0,0,0.2);
+        box-shadow: 5px 15px 25px 15px rgba(0,0,0,0.3);
         transition: 0.5s;
     }
     .circle{
@@ -74,7 +79,7 @@ export const ContainerActivity = styled.div`
         background-color: ${({theme})=> theme.bgc};
         margin: 20px;
         border-radius: 20px;
-        box-shadow: 15px 15px 25px rgba(0,0,0,0.2);
+        box-shadow: 5px 15px 25px 10px rgba(0,0,0,0.2);
         transition: 0.5s;
         display: flex;
         flex-direction: column;

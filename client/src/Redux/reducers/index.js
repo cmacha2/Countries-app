@@ -11,7 +11,7 @@ const initialState = {
     allActivities:[],
     currentPage:0,
     status:0,
-    theme:true
+    theme:false
   }; 
 
   export default function rootReducer(state = initialState, action) {

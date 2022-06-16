@@ -6,12 +6,13 @@ display: flex;
 justify-content: center;
 flex-direction: column-reverse;
 align-items: center;
-padding-top: 2rem;
-
+padding: 2rem;
+height: 100vh;
+background-color: ${({theme})=> theme.bgc};
   .card{
     width: 580px;
     height: auto;
-    background-color: #2B3743;
+    background-color: ${({theme})=> theme.bgc};
     margin: 20px;
     border-radius: 20px;
     box-shadow: 0 15px 25px rgba(0,0,0,0.2);
@@ -20,10 +21,10 @@ padding-top: 2rem;
     justify-content: center;
     flex-direction: column;
     padding: 1rem 2rem 1rem 2rem;
-    color: #7a7a8c;
+    color: ${({theme})=> theme.text};
 
     &>h3{
-      color: white;
+      color: ${({theme})=> theme.text};
   margin: 0.5rem;
   margin-top: 1rem;
   
@@ -44,14 +45,14 @@ padding-top: 2rem;
     }
     .name{
       width: 15rem;
-      background: #24303c;
+      background: ${({theme})=> theme.bgc};
       padding: 10px;
       border-radius: 4px;
       margin-bottom: 16px;
       border: 1px solid #1f53c5;
       font-family: 'calibri';
       font-size: 18px;   
-      color: white;
+      color: ${({theme})=> theme.text};
     }
 
   }
@@ -66,14 +67,14 @@ padding-top: 2rem;
     } 
     .time{
       width: 15rem;
-      background: #24303c;
+      background: ${({theme})=> theme.bgc};
       padding: 10px;
       border-radius: 4px;
       margin-bottom: 16px;
       border: 1px solid #1f53c5;
       font-family: 'calibri';
       font-size: 18px;   
-      color: white;
+      color: ${({theme})=> theme.text};
     }
    /*  .select{
       width: 8rem;
@@ -189,20 +190,21 @@ padding-top: 2rem;
   margin: 0.5rem;
   display: flex; 
 .selector-countries{
-      width:10rem;
+      width:11rem;
       height: 3rem;
-      background: #24303c;
+      background: ${({theme})=> theme.bgc};
       padding: 10px;
       border-radius: 4px;
       margin-bottom: 16px;
+      box-shadow: 15px 15px 25px rgba(0,0,0,0.2);
       border: 1px solid #1f53c5;
       font-family: 'calibri';
       font-size: 18px;   
-      color: white;
+      color: ${({theme})=> theme.text};
         
       cursor:pointer;
       border-radius: 5px;
-      border: none;
+      /* border: none; */
     
     .select-countries:focus,
     .select-countries:hove{
@@ -227,11 +229,11 @@ padding-top: 2rem;
         margin:0 0.3rem 0.3rem 0;
         padding-right: 2rem;
         padding-left: 0.3rem;
-        background-color: #5897FB;
+        background-color: ${({theme})=> theme.text};
         border-radius: 1rem;
         
         .country{
-          color: #eee;
+          color: ${({theme})=> theme.bgc};
           
         }
         .close-country{
@@ -239,7 +241,7 @@ padding-top: 2rem;
           height: 1rem;
           border-radius: 1rem;
           border: none;
-          color: #eee;
+          color:${({theme})=> theme.bgc};
           background-color: transparent !important;
           position: absolute;
           margin-left: 2.2rem;
@@ -262,7 +264,9 @@ padding-top: 2rem;
       border-radius: 0.5rem;
     }
   }
-  .button-back{
+ 
+`
+export const BackButton = styled.button`
             background: linear-gradient(90deg,#ff8a00,#e52e71);
             text-shadow: none;
             -webkit-text-fill-color: transparent;
@@ -278,28 +282,24 @@ padding-top: 2rem;
             border: 3px solid #28242f;
             border-radius: 2rem;
             padding: .1rem .85rem .25rem;
-            position: relative;
-            right: 45%;
-            top: 2.7rem;
+            position: fixed;
+            left: 6%;
+            top: 11%;
           
-        }
-        .button-back:hover{
-            background-clip: text;
-            border-color: white;
-        }
         
-`
+        &:hover{
+            background-clip: text;
+            border-color:  ${({theme})=> theme.text};
+        }
+        `
 
 export const ContainerModal = styled.div`
-body {
-  background-color: #edeef6;
   font-family: 'Poppins', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
   margin: 0;
-}
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  transition: 0.5s;
 button {
   background-color: #47a386;
   border: 0;
