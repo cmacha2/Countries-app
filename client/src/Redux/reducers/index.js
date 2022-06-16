@@ -1,5 +1,5 @@
 import { msgWelcome } from "../../components/ChatBot/bot.js";
-import  {CURRENT_PAGE, GET_ACTIVITIES_POPULATION, GET_ALL_ACTIVITIES, GET_ALL_INFORMATION, GET_FILTER_ACTIVITIES, HANDLER_PAGINATION, SHOW_ALL_ACTIVITIES, SortNameAZ, SortNameZA, SortPopulationAZ, SortPopulationZA } from "../actions-types";
+import  {CURRENT_PAGE, GET_ACTIVITIES_POPULATION, GET_ALL_ACTIVITIES, GET_ALL_INFORMATION, GET_FILTER_ACTIVITIES, HANDLER_PAGINATION, SHOW_ALL_ACTIVITIES, SortNameAZ, SortNameZA, SortPopulationAZ, SortPopulationZA, SWITCH_THEME } from "../actions-types";
 import { ADD_CHATBOT_INFO, GET_COUNTRIES, GET_COUNTRIES_SORT, GET_COUNTRIES_DETAILS, GET_COUNTRIES_FOR_CONTINENT, GET_COUNTRIES_MATCH, POST_ACTIVITY} from "../actions-types";
 
 const initialState = {
@@ -10,7 +10,8 @@ const initialState = {
     postActivities:[],
     allActivities:[],
     currentPage:0,
-    status:0
+    status:0,
+    theme:true
   }; 
 
   export default function rootReducer(state = initialState, action) {
@@ -150,6 +151,16 @@ const initialState = {
           ...state,
           currentPage:0,
           postActivities:action.payload
+        }
+      }
+
+      case SWITCH_THEME:{
+        console.log(action.payload)
+        if(!action.payload===state.theme){
+          return {
+            ...state,
+            theme:action.payload
+          }
         }
       }
     

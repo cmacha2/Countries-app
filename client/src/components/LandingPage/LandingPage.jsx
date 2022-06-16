@@ -35,8 +35,8 @@ export default function LandingPage() {
     {flag && <div className="content">
     <img src={travelWorld} width={250} onClick={()=> history.replace("/home")} alt="travel"/>
          <button className="button-enter" onClick={()=> history.replace("/home")}>Welcome</button>
-      <img src={linkedlin} className="linkedlin" width={50} alt="linkedlin" />
-      <img src={github} className="github"  width={55} alt="linkedlin" />
+      <img src={linkedlin} className="linkedlin" width={50} onClick={()=>  window.open('https://www.linkedin.com/in/cristian-machado-%E2%9C%B0-0a2bba204/', '_blank') } alt="linkedlin" />
+      <img src={github} className="github"  width={55} alt="github"  onClick={()=>   window.open('https://github.com/cmacha2','_blank') }/>
     </div>
     
     }

@@ -8,7 +8,8 @@ export const Container = styled.div`
     width: 320px;
     min-width: 250px;
     border-radius: 16px;
-    background: #2B3743;
+   /*  background: #2B3743; */
+   background:${({theme})=> theme.bgc};
     box-shadow: -1rem 0 3rem #000;
     display: flex;
     flex-direction: column;
@@ -97,7 +98,7 @@ export const Container = styled.div`
 .country-name {
     grid-area: auto;
     box-sizing: border-box;
-    color:white;
+    color:${({theme})=> theme.text}
 }
 
 .country-name-prefix {

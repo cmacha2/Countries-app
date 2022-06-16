@@ -2,14 +2,13 @@ import styled from "styled-components"
 
 
 export const Container = styled.div`
- body {
+
     padding: 0;
     margin: 0;
-    background-color: #17141d;
-    color: white;
-    font-family: 'DM Mono', monospace;
-}
-
+    /* background-color: ${({theme})=> theme.bgc}; */
+    /* color:${({theme})=> theme.text}; */
+    /* font-family: 'DM Mono', monospace; */
+    padding-bottom: 3.05rem;
 .card-list {
     display: flex;
     flex-wrap: wrap;
@@ -17,7 +16,7 @@ export const Container = styled.div`
     flex-direction: row;
     margin: 1.5rem;
     padding: 0.5rem;
-    
+    /* padding-bottom: 3.6rem; */
 }
  .buttonPages{
      display: flex;
@@ -25,6 +24,26 @@ export const Container = styled.div`
      justify-content: center;
      align-items: center;
      &>button{
+    background: linear-gradient(90deg,#ff8a00,#e52e71);
+    text-shadow: none;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    /* -webkit-box-decoration-break: clone; */
+    background-clip: text;
+    border-color: white;
+
+    font-style: normal;
+    font-weight: 900;
+    font-size: .5rem;
+    color: #7a7a8c;
+    text-transform: uppercase;
+    font-size: .66rem;
+    border: 3px solid #28242f;
+    border-radius: 2rem;
+    padding: .2rem .85rem .25rem;
+    position: relative;
+
+/*     
         padding:8px 12px ;
         background-color: #202C37;
         color:#eeeeee;
@@ -39,7 +58,7 @@ export const Container = styled.div`
 
         appearance: none;
         -webkit-appearance: none;
-        -moz-appearance: none;
+        -moz-appearance: none; */
      }
  }
 `

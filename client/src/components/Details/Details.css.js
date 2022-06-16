@@ -5,7 +5,7 @@ export const Container = styled.div`
     
     padding: 0;
     margin: 0;
-    color:  #ddd;
+    color:  ${({theme})=> theme.text};
     font-family: 'Poppins', sans-serif;
     font-size: 1.3rem;
     display: flex;
@@ -15,10 +15,10 @@ export const Container = styled.div`
     .card{
         width: 430px;
         height: 550px;
-        background-color: #2B3743;
+        background-color:${({theme})=> theme.bgc};
         margin: 20px 0 20px 4rem;
         border-radius: 20px;
-        box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+        box-shadow: 15px 15px 25px 5px rgba(0,0,0,0.2);
         transition: 0.5s;
     }
     .circle{
@@ -63,7 +63,7 @@ export const Container = styled.div`
         }
         .back-button:hover{
             background-clip: text;
-            border-color: white;
+            border-color: ${({theme})=> theme.text};
         }
     
 `
@@ -71,16 +71,16 @@ export const Container = styled.div`
 export const ContainerActivity = styled.div`
         width: 180px;
         height:150px;
-        background-color: #2B3743;
+        background-color: ${({theme})=> theme.bgc};
         margin: 20px;
         border-radius: 20px;
-        box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+        box-shadow: 15px 15px 25px rgba(0,0,0,0.2);
         transition: 0.5s;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: #ddd;
+        color: ${({theme})=> theme.text};
         /* margin-left: -2rem; */
 `
 

@@ -1,4 +1,4 @@
-import { ADD_CHATBOT_INFO, CURRENT_PAGE, GET_ALL_ACTIVITIES, GET_COUNTRIES, GET_COUNTRIES_DETAILS, GET_COUNTRIES_FOR_CONTINENT, GET_COUNTRIES_MATCH, GET_COUNTRIES_SORT, GET_FILTER_ACTIVITIES, HANDLER_PAGINATION, POST_ACTIVITY, SHOW_ALL_ACTIVITIES } from "../actions-types";
+import { ADD_CHATBOT_INFO, CURRENT_PAGE, GET_ALL_ACTIVITIES, GET_COUNTRIES, GET_COUNTRIES_DETAILS, GET_COUNTRIES_FOR_CONTINENT, GET_COUNTRIES_MATCH, GET_COUNTRIES_SORT, GET_FILTER_ACTIVITIES, HANDLER_PAGINATION, POST_ACTIVITY, SHOW_ALL_ACTIVITIES, SWITCH_THEME } from "../actions-types";
 import axios from "axios"
 
 export function addChatBotInfo(payload) {
@@ -81,6 +81,14 @@ export function filterForContinent(searchContinent){
 export function getCountriesSort(data){
   return {
     type:GET_COUNTRIES_SORT,
+    payload:data
+  }
+}
+
+
+export function switchTheme(data){
+  return {
+    type:SWITCH_THEME,
     payload:data
   }
 }

@@ -8,8 +8,8 @@ export const ContainerMenu = styled.div`
         padding:8px 12px ;
         /* color:#333333;
         background-color: #eeeeee; */
-        background-color: #202C37;
-        color:#eeeeee;
+        background-color: ${({theme})=> theme.bgc};
+        color:${({theme})=> theme.text};
         /* border:1px solid #dddddd; */
         cursor:pointer;
 
@@ -33,8 +33,11 @@ box-shadow: 0px 0px 14px -1px rgba(20,19,20,1);
         outline: none;
         border:1px solid #dddddd;
     }
+    .select:befor{
+        border: none;
+    }
     .select option{
         /* background: #ffffff; */
-        background-color:  #202C37;
+        background-color: ${({theme})=> theme.bgc};
     }
 `

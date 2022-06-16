@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { filterForContinent, getCountries } from "../../Redux/actions";
-import { ContainerMenu } from "./FilterByContinent.css";
+import { ContainerMenu } from "./FilterByActivities.css";
 
 export default function FilterByContinent() {
   const [continent, setContinent] = useState({});
