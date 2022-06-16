@@ -19,13 +19,15 @@ export default function ButtonMsg() {
 
 const Container = styled.div`
    .containerBtn{
-    position: absolute;
+    /* position: absolute;
     bottom:0;
     right: 0;
-    margin: 30px;
+    margin: 30px; */
     display:flex;
     align-items: flex-end;
-    flex-direction: column; 
+    flex-direction: column;
+    padding: 1.3rem;
+    
        .btnMsg{
         background-image: url("https://images.vexels.com/media/users/3/135148/isolated/preview/da10190af5af2fd3278b4e9f5e8e5935-mensaje-letrero-plano-con-fondo-redondo.png"); 
         border-radius: 100%;

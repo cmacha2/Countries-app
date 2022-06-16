@@ -1,8 +1,8 @@
 import React from "react";
 import { useState,useEffect,useRef } from "react";
 import styled from "styled-components";
-import Switch from "react-switch";
-import { IoMdSend,IoMdClose } from 'react-icons/io'
+// import Switch from "react-switch";
+// import { IoMdSend,IoMdClose } from 'react-icons/io'
 import { useDispatch, useSelector } from "react-redux";
 import { addChatBotInfo, updateLoading } from "../../Redux/actions";
 import msgProcessing, { msgWelcome } from "./bot";
@@ -34,11 +34,11 @@ const onSubmit = (e) => {
   return (
     <Container switch={check}>
       <div className="up-bar">
-        <Switch className="checked" onChange={(e)=>setCheck(e)} checked={check} onColor="#344d6c" offHandleColor="#232E3B" onHandleColor="#e4e4e4" handleDiameter={20} uncheckedIcon={false} checkedIcon={false} boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"  activeBoxShadow="0px 0px 1px  10px rgba(0, 0, 0, 0.2)" height={20}
-        width={40}/>
+        {/* <Switch className="checked" onChange={(e)=>setCheck(e)} checked={check} onColor="#344d6c" offHandleColor="#232E3B" onHandleColor="#e4e4e4" handleDiameter={20} uncheckedIcon={false} checkedIcon={false} boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"  activeBoxShadow="0px 0px 1px  10px rgba(0, 0, 0, 0.2)" height={20}
+        width={40}/> */}
         <label >Chat with us!</label>
         <div className="container-buttons">
-          <button className="BtnClose" onClick={()=>setShowComponent(!showComponent)}><IoMdClose/></button>
+          <button className="BtnClose" onClick={()=>setShowComponent(!showComponent)}>{/* <IoMdClose/> */}</button>
         </div>
       </div>
       <div className="chats">
@@ -56,7 +56,7 @@ const onSubmit = (e) => {
           usuario="usuario"
         />
         <button className="" type="submit">
-         <IoMdSend />
+         {/* <IoMdSend /> */}
         </button>
       </form> 
     </div>
@@ -111,6 +111,7 @@ const Container = styled.div`
       overflow: auto;
       overflow-x: hidden;
       scroll-behavior:  auto ;
+      
     }
     .msgContainer::-webkit-scrollbar{
       width: 8px;

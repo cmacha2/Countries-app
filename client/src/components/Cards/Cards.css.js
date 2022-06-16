@@ -9,6 +9,7 @@ export const Container = styled.div`
     /* color:${({theme})=> theme.text}; */
     /* font-family: 'DM Mono', monospace; */
     padding-bottom: 3.05rem;
+   
 .card-list {
     display: flex;
     flex-wrap: wrap;

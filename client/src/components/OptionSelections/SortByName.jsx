@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import {  getCountriesSort } from "../../Redux/actions";
-import { ContainerMenu } from "./FilterByActivities.css";
+import { ContainerMenu } from "./OptionSelect.css";
+
 
 export default function SortByName() {
   const [sort, setSort] = useState({});

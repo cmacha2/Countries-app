@@ -12,13 +12,21 @@ export default function Messages({msg,check,index}) {
 
   return (
     <Container switch={check} ref={messagesEndRef} >
-        {index!==0 && <p className="chatsUser">{msg.usuario}</p>}
-        {<p className="chatsBot">{msg.bot}</p>}
+      <div className="container-user">
+      {index!==0 && <p className="chatsUser">{msg.usuario}</p>}
+      </div>
+      <div className="container-bot">
+      {<p className="chatsBot">{msg.bot}</p>}
+      </div>
     </Container >
   )
 }
 
 const Container = styled.div`
+padding-bottom: 0.4rem;
+.container-user{
+ /* padding-top: 0.4rem; */
+
 .chatsUser{
   background-color:${props => props.switch ?  "#3E618A" :  " #f2f2f294" };
   margin-left: 25px;
@@ -28,6 +36,10 @@ const Container = styled.div`
   padding: 0.4rem;
   color:  ${props => props.switch ? "#fAFAFA" : " #000000" };
   }
+ }
+ .container-bot{
+  padding-top: 0.4rem;
+
   .chatsBot{
   background-color:${props => props.switch ? "#232E3B" :  " #cbcbcbb5"  };
   margin-left: 5px;
@@ -36,4 +48,5 @@ const Container = styled.div`
   padding: 0.4rem;
   color: ${props => props.switch ? "#fAFAFA" : " #000000" };
   }
+}
 `

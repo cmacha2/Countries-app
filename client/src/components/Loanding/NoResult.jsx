@@ -41,7 +41,7 @@ const ContainerNoResults =  styled.div`
   .wavy span{
     position: relative;
     display: inline-block;
-    color: #fff;
+    color:${({theme})=> theme.text};;
     font-size: 2em;
     text-transform: uppercase;
     animation: animate 1s ease-in-out infinite;

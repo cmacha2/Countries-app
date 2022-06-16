@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const ContainerSwitch = styled.div`
 .container{
    position: absolute;
-   top: 4%;
-   left: 97%;
+   top: 2.5rem;
+   right: 0rem;
    transform: translate(-50%,-50%);
    text-align: center;
    .label-theme{
@@ -27,7 +27,7 @@ export const ContainerSwitch = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color:#2B3743;
+    background-color: ${({theme})=> theme.text};
     transition: .4s;
     border-radius: 34px;
    }
@@ -39,14 +39,14 @@ export const ContainerSwitch = styled.div`
     width: 20px;
     left: 5px;
     bottom: 5px;
-    background-color:white;
+    background-color: ${({theme})=> theme.bgc};
     border-radius: 50px;
   }
   input:checked + .slider{
-    background-color: white;
+    background-color: ${({theme})=> theme.text};
   }
   input:checked + .slider:before{
-    background-color: #2B3743;
+    background-color:${({theme})=> theme.bgc};
     transform: translateX(30px);
   }
 }

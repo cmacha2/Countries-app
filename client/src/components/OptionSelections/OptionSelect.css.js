@@ -15,9 +15,7 @@ export const ContainerMenu = styled.div`
 
         border-radius: 5px;
         border: none;
-        -webkit-box-shadow: 0px 0px 14px -1px rgba(20,19,20,1);
--moz-box-shadow: 0px 0px 14px -1px rgba(20,19,20,1);
-box-shadow: 0px 0px 14px -1px rgba(20,19,20,1);
+        box-shadow: 5px 5px 17px rgba(0,0,0,0.2);
 
         appearance: none;
         -webkit-appearance: none;
