@@ -8,7 +8,7 @@ import useQuery from '../hooks/useQuery';
 import { Loading } from '../Loanding/Loading';
 import { NoResults } from '../Loanding/NoResult';
 import Card from './Card'
-import { Container } from './Cards.css';
+import { ButtonCurrentPage, Container, ContainerButtons, ContainerCardsList } from './Cards.css';
 
 const ITEMS_FOR_PAGE = 10;
 
@@ -43,13 +43,13 @@ export default function Cards() {
     
     {!status && <Loading/>}
     {!currentCountries.length && status && <NoResults/>}
-    <div className='card-list'>
+    <ContainerCardsList>
    {  currentCountries?.map(country =>  <Card key={country.id} country={country} />)} 
-   </div>
-   <div className='buttonPages'>
-    <button disabled={currentPage===0} onClick={prevPage}>Prev</button>
-    <button disabled={currentCountries.length<9 || currentPage===240} onClick={nextPage}>Next</button>
-    </div>
+   </ContainerCardsList>
+   <ContainerButtons>
+    <ButtonCurrentPage disabled={currentPage===0} onClick={prevPage}>Prev</ButtonCurrentPage>
+    <ButtonCurrentPage disabled={currentCountries.length<9 || currentPage===240} onClick={nextPage}>Next</ButtonCurrentPage>
+    </ContainerButtons>
     </Container>
   )
 }

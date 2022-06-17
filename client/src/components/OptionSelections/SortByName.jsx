@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import {  getCountriesSort } from "../../Redux/actions";
-import { ContainerMenu } from "./OptionSelect.css";
+import { ContainerMenu, Options, Selectors } from "./OptionSelect.css";
 
 
 export default function SortByName() {
@@ -23,12 +23,12 @@ export default function SortByName() {
   return (
     <>
      <ContainerMenu>
-    <select name="byName" id="byName" className="select" onChange={onChange}>
+    <Selectors name="byName" id="byName" className="select" onChange={onChange}>
         {/* <option disabled selected></option> */}
-        <option value="">Sort by Name</option>
-        <option value="sortName-a-z">By name A-Z</option>
-        <option value="sortName-z-a">By name Z-A</option>
-    </select>
+        <Options value="">Sort by Name</Options>
+        <Options value="sortName-a-z">By name A-Z</Options>
+        <Options value="sortName-z-a">By name Z-A</Options>
+    </Selectors>
     </ContainerMenu>
     </>
   );

@@ -1,41 +1,37 @@
-import styled from "styled-components"
-
-
+import styled from "styled-components";
 
 export const ContainerMenu = styled.div`
-    .select{
+  padding: 0;
+  margin: 0;
+`;
 
-        padding:8px 12px ;
-        /* color:#333333;
-        background-color: #eeeeee; */
-        background-color: ${({theme})=> theme.bgc};
-        color:${({theme})=> theme.text};
-        /* border:1px solid #dddddd; */
-        cursor:pointer;
+export const Selectors = styled.select`
+  width: 10rem;
+  padding: 8px;
+  background-color: ${({ theme }) => theme.bgc};
+  color: ${({ theme }) => theme.text};
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 5px 5px 17px rgba(0, 0, 0, 0.2);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("http://imgfz.com/i/6H5COJ7.png");
+  background-position: right 10px top 50%;
+  background-repeat: no-repeat;
+  background-size: 10px;
+  padding-right: 30px;
+  &:focus,
+  &:hove {
+    outline: none;
+    border: 1px solid #dddddd;
+  }
+  &:befor {
+    border: none;
+  }
+`;
 
-        border-radius: 5px;
-        border: none;
-        box-shadow: 5px 5px 17px rgba(0,0,0,0.2);
-
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        /* background-image: url('https://banner2.cleanpng.com/20180405/fbq/kisspng-drop-down-list-computer-icons-down-arrow-5ac6e0cbd29f59.0790222715229831158627.jpg'); */
-        background-position: right 10px top 50%;
-        background-repeat: no-repeat;
-        background-size: 10px;
-        padding-right: 30px;
-    } 
-    .select:focus,
-    .select:hove{
-        outline: none;
-        border:1px solid #dddddd;
-    }
-    .select:befor{
-        border: none;
-    }
-    .select option{
-        /* background: #ffffff; */
-        background-color: ${({theme})=> theme.bgc};
-    }
+export const Options = styled.option`
+background-color: ${({ theme }) => theme.bgc};
 `

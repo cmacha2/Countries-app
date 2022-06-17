@@ -28,7 +28,7 @@ padding-bottom: 0.4rem;
  /* padding-top: 0.4rem; */
 
 .chatsUser{
-  background-color:${props => props.switch ?  "#3E618A" :  " #f2f2f294" };
+  background-color:${props => props.switch ?  "#3E618A" :  " #CBC3EB" };
   margin-left: 25px;
   margin-right: 5px;
   border-radius: 0.6rem; 
@@ -41,7 +41,7 @@ padding-bottom: 0.4rem;
   padding-top: 0.4rem;
 
   .chatsBot{
-  background-color:${props => props.switch ? "#232E3B" :  " #cbcbcbb5"  };
+  background-color:${props => props.switch ? "#232E3B" :  " #EBF0F5"  };
   margin-left: 5px;
   margin-right: 25px; 
   border-radius: 0.6rem; 

@@ -9,6 +9,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import Error404 from './components/Error/Error404';
 import Details from './components/Details/Details';
 import FormActivity from './components/FormActivity/FormActivity';
+import { GlobalStyle } from './GlobalStyled';
 
 ReactDOM.render(
   <BrowserRouter>

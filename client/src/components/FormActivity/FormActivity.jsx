@@ -46,13 +46,6 @@ export default function FormActivity() {
     e.target.reset()
     setCountries([])
   };
-  // const onClick =(e)=>{
-  //   let id = [countries].map(c=>c.id)
-  //   setInput({
-  //     ...input,
-  //     ids:[id,e.target.value],
-  //   });
-  // }
 
   const handleInputChange = function (e) {
     setInput({
@@ -115,15 +108,6 @@ export default function FormActivity() {
             type="text"
             placeholder="Write the duration"
           />
-          {/* <input type="text" className="time" value={input.duration} onChange={handleInputChange}  name="duration"/>
-          <select  name='duration-time'  className="select" onChange={(e)=>setTime(e.target.value)}>
-            <option >Select time</option>
-            <option  value="minutos">minutos</option>
-            <option  value="horas">horas</option>
-            <option  value="dias">dias</option>
-            <option   value="semanas">semanas</option>
-            <option  value="meses">meses</option>
-          </select>  */}
           {errors.duration && <span className="error">{errors.duration}</span>}
         </div>
 
@@ -270,7 +254,9 @@ export default function FormActivity() {
           Create
         </button>
       </div>
-      <ContainerModal>
+    </Container>
+    <BackButton onClick={()=>history.replace(`/home`)}>Back</BackButton> 
+    <ContainerModal>
         {modal && (
           <div className="modal">
             <h2>Successful</h2>
@@ -283,8 +269,6 @@ export default function FormActivity() {
           </div>
         )}
       </ContainerModal>
-    </Container>
-    <BackButton onClick={()=>history.replace(`/home`)}>Back</BackButton> 
     </ThemeProvider>
   );
 }

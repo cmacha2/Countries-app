@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { filterForContinent, getCountries } from "../../Redux/actions";
-import { ContainerMenu } from "./OptionSelect.css";
+import { ContainerMenu, Options, Selectors } from "./OptionSelect.css";
 
 
 export default function FilterByContinent() {
@@ -24,16 +24,16 @@ export default function FilterByContinent() {
   return (
     <>
     <ContainerMenu>
-    <select name="Continents" id="Continents" className="select" onChange={onChange}>
-        <option value="">Filter By Continents</option>
+    <Selectors name="Continents" id="Continents" className="select" onChange={onChange}>
+        <Options value="">Filter By Continents</Options>
         {/* <option >All Countinents</option> */}
-        <option value="Europe">Europe</option>
-        <option value="North America">North America</option>
-        <option value="South America">South America</option>
-        <option value="Africa">Africa</option>
-        <option value="Oceania">Oceania</option>
-        <option value="Antarctica">Antarctica</option>
-    </select>
+        <Options value="Europe">Europe</Options>
+        <Options value="North America">North America</Options>
+        <Options value="South America">South America</Options>
+        <Options value="Africa">Africa</Options>
+        <Options value="Oceania">Oceania</Options>
+        <Options value="Antarctica">Antarctica</Options>
+    </Selectors>
     </ContainerMenu>
     </>
   );

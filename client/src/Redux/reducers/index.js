@@ -1,6 +1,7 @@
-import { msgWelcome } from "../../components/ChatBot/bot.js";
+// import { msgWelcome } from "../../components/ChatBot/ChatBot";
 import  {CURRENT_PAGE, GET_ACTIVITIES_POPULATION, GET_ALL_ACTIVITIES, GET_ALL_INFORMATION, GET_FILTER_ACTIVITIES, HANDLER_PAGINATION, SHOW_ALL_ACTIVITIES, SortNameAZ, SortNameZA, SortPopulationAZ, SortPopulationZA, SWITCH_THEME } from "../actions-types";
 import { ADD_CHATBOT_INFO, GET_COUNTRIES, GET_COUNTRIES_SORT, GET_COUNTRIES_DETAILS, GET_COUNTRIES_FOR_CONTINENT, GET_COUNTRIES_MATCH, POST_ACTIVITY} from "../actions-types";
+const msgWelcome = `Hello, welcome to the individual project of Cristian Machado, in which we address the theme of countries, and we carry out a SPA called TravelWorld in which we can search for different countries as tourist destinations and add activities belonging to one or several countries.`
 
 const initialState = {
     botInfo: [{bot:msgWelcome}],
@@ -24,7 +25,9 @@ const initialState = {
         }
       }
       case GET_COUNTRIES:{
+
         const [countries,status] = action.payload
+        console.log(countries)
         return {
           ...state,
           currentPage:0,

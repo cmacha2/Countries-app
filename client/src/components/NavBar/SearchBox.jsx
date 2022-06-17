@@ -6,44 +6,43 @@ import { useHistory } from 'react-router-dom';
 import { getCountries, getCountriesMatch } from '../../Redux/actions';
 import { useDebounce } from '../hooks/useDebounce';
 import useQuery from '../hooks/useQuery';
-import { ContainerSearch } from './SearchBox.css'
+import { ClearInput, ContainerInput, ContainerSearch, ContainerSearchBox, IconLupa, Search, WrapperSearchBox } from './SearchBox.css'
 
 export const SearchBox = () => {
     const [flag, setFlag] = useState(false);
     const [country, setCountry] = useState("");
     const history = useHistory(); 
-    const query = useQuery()
-    const search = query.get('name')
+    // const query = useQuery()
+    // const search = query.get('name')
     const dispatch = useDispatch();
-    const [continent, setContinent] = useState({});
+    // const [continent, setContinent] = useState({});
   
-    const debouncedSearch =  useDebounce(search, 300)
+    // const debouncedSearch =  useDebounce(search, 300)
   
   useEffect(() => {
-    search ? dispatch(getCountriesMatch(search)) : dispatch(getCountries())
-  }, [search]);
+    country ? dispatch(getCountriesMatch(country)) : dispatch(getCountries())
+  }, [country]);
   
-    const onSubmit = (e) => {
-      e.preventDefault();
-      // history.replace(`?name=${country}`);
-    };
+    // const onSubmit = (e) => {
+    //   e.preventDefault();
+    //   // history.replace(`?name=${country}`);
+    // };
   
-    useEffect(() => {
-      history.replace()
-    }, []);
+    // useEffect(() => {
+    //   history.replace()
+    // }, []);
     
     const onChange = (e)=>{
       setCountry(e.target.value)
-      history.replace(`?name=${country}`);
+      // history.replace(`?name=${country}`);
       }
   
-
+      console.log(flag)
   return (
-    <ContainerSearch switch={flag}>
-    <div className="search">
-      <div className="icon" onClick={()=>setFlag(!flag)}></div>
-      <div className="input">
-      <form type="submit">
+    <WrapperSearchBox>
+    <Search switch={flag}>
+      <IconLupa onClick={()=> setFlag(!flag)}/>
+      <ContainerInput>
       <input
       className="searchInput"
         type="text"
@@ -51,11 +50,9 @@ export const SearchBox = () => {
         onChange={onChange}
         placeholder="Search..."
       />
-    </form>
-    <span className="clear" onClick={()=>setCountry('')}></span>
-      </div>
-   
-    </div>
-    </ContainerSearch>
+     <ClearInput onClick={()=>setCountry('')}></ClearInput>
+      </ContainerInput>
+    </Search>
+    </WrapperSearchBox>
   )
 }
