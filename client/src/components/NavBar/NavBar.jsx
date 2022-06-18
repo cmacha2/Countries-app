@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, ContainerIMG } from './NavBar.css'
+import { ContainerIMG, Wrapper } from './NavBar.css'
 import ligthLogo from "../LandingPage/travelWorld.png"
 import darkLogo from "../LandingPage/darklogo.png"
 import { useHistory } from 'react-router-dom'
@@ -11,13 +11,13 @@ export default function NavBar() {
   const history = useHistory();
   const theme = useSelector(state => state.theme);
   return (
-    <Container>
+    <Wrapper>
       <ContainerIMG>
       <img src={theme ? ligthLogo : darkLogo} className="logo" onClick={()=> history.replace("/home")} width={80} alt="travel"/>
       </ContainerIMG>
       <SearchBox/>
-      <Switch className="switch"/>
-    </Container>
+      <Switch/>
+    </Wrapper>
   )
 }
 

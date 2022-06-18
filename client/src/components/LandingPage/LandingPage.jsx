@@ -24,12 +24,12 @@ export default function LandingPage() {
         <VideoScreen src={videoBg} autoPlay loop muted ></VideoScreen>
         {flag && <ContainerWelcome>
     <ImgLogo src={travelWorld} width={250} onClick={()=> history.replace("/home") } alt="travel"/>
-    <ButtonEnter className="button-enter" onClick={()=> history.replace("/home")}>Welcome</ButtonEnter>
+    <ButtonEnter id='welcomeButton' onClick={()=> history.replace("/home")}>Welcome</ButtonEnter>
     </ContainerWelcome> }
 
         <ContainerSocialMedia> 
-        <ImgSocialMedia src={linkedlin} className="linkedlin" width={50} onClick={()=>  window.open('https://www.linkedin.com/in/cristian-machado-%E2%9C%B0-0a2bba204/', '_blank') } alt="linkedlin" />
-        <ImgSocialMedia src={github} className="github"  width={55} alt="github"  onClick={()=>   window.open('https://github.com/cmacha2','_blank') }/>
+        <ImgSocialMedia src={linkedlin} width={50} onClick={()=>  window.open('https://www.linkedin.com/in/cristian-machado-%E2%9C%B0-0a2bba204/', '_blank') } alt="linkedlin" />
+        <ImgSocialMedia src={github}  width={55} alt="github"  onClick={()=>   window.open('https://github.com/cmacha2','_blank') }/>
         </ContainerSocialMedia> 
     </Container>
   );

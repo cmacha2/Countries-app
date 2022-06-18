@@ -16,16 +16,13 @@ export default function SortByPopulation() {
   };
 
   useEffect(() => {
-      console.log(sort)
     Object.entries(sort).length && dispatch(getCountriesSort(sort))
-    //   : dispatch(getCountries());
   }, [sort]);
 
   return (
     <>
      <ContainerMenu>
-    <Selectors name="Continents" id="Continents" className="select" onChange={onChange}>
-        {/* <option disabled selected></option> */}
+    <Selectors name="Continents" id="Continents" onChange={onChange}>
         <Options value="">Sort by Population</Options>
         <Options value="sortPopulation-a-z">Highest to lowest</Options>
         <Options value="sortPopulation-z-a">Smallest to largest</Options>

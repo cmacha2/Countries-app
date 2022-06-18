@@ -24,9 +24,8 @@ export default function FilterByContinent() {
   return (
     <>
     <ContainerMenu>
-    <Selectors name="Continents" id="Continents" className="select" onChange={onChange}>
+    <Selectors name="Continents" id="Continents" onChange={onChange}>
         <Options value="">Filter By Continents</Options>
-        {/* <option >All Countinents</option> */}
         <Options value="Europe">Europe</Options>
         <Options value="North America">North America</Options>
         <Options value="South America">South America</Options>

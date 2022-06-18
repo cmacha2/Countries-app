@@ -17,14 +17,12 @@ export default function SortByName() {
 
   useEffect(() => {
     Object.entries(sort).length && dispatch(getCountriesSort(sort))
-    //   : dispatch(getCountries());
   }, [sort]);
 
   return (
     <>
      <ContainerMenu>
-    <Selectors name="byName" id="byName" className="select" onChange={onChange}>
-        {/* <option disabled selected></option> */}
+    <Selectors name="byName" id="byName" onChange={onChange}>
         <Options value="">Sort by Name</Options>
         <Options value="sortName-a-z">By name A-Z</Options>
         <Options value="sortName-z-a">By name Z-A</Options>

@@ -13,18 +13,13 @@ import styled from "styled-components";
 
 export default function OptionBar() {
   const history = useHistory();
-
-//   useEffect(() => {
-//        Object.entries(continent).length ? dispatch(filterForContinent(continent)) : dispatch(getCountries())
-//        console.log(continent)
-//   }, [continent]);
   return (
     <Container>
       <FilterByContinent/>
       <SortByName/>
       <SortByPopulation/>
       <FilterByActivities/>
-      <ButtonCreateActivity  type="submit" onClick={()=> history.replace(`/activities`)}>Create Activities</ButtonCreateActivity>
+      <ButtonCreateActivity id="buttonCreateActivity" type="submit" onClick={()=> history.replace(`/activities`)}>Create Activities</ButtonCreateActivity>
     </Container>
   );
 }

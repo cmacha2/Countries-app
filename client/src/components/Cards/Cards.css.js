@@ -11,15 +11,23 @@ export const Container = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: row;
-    margin: 1.5rem;
-    padding: 0.5rem;`
+    /* margin: 1.5rem; */
+    padding-bottom: 1.5rem;`
 
- export const ContainerButtons =  styled.div`
+ export const FlooterBar =  styled.div`
+ /* background-color: red;
+     display: flex; */
+`
+export const WrapperButtons = styled.div`
      display: flex;
      flex-direction: row;
      justify-content: center;
      align-items: center;
-     `
+     height: auto;
+     width: auto;
+     /* height: 5rem; */
+    /* background-color: black; */
+`
    export const ButtonCurrentPage =  styled.button`
     background: linear-gradient(90deg,#ff8a00,#e52e71);
     text-shadow: none;

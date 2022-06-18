@@ -17,18 +17,14 @@ export default function FilterByActivities() {
   }, []);
 
   useEffect(() => {
-    //   console.log(sort)
-    // Object.entries(sort).length && dispatch(getCountriesSort(sort))
-    //   : dispatch(getCountries());
-    // Object.entries(nameActivity).length &&  dispatch(getFilterActivities(nameActivity))
     if(nameActivity==='allCountries')dispatch(getCountries()) 
     if(nameActivity==='allActivities')dispatch(getAllActivies()) 
     if(nameActivity!=='allCountries'&&nameActivity!=='') dispatch(getFilterActivities(nameActivity)) 
-  }, [nameActivity]);
+  }, [nameActivity,dispatch]);
 
   return (
      <ContainerMenu>
-     <Selectors  name="activities" id="activities" className="select" onChange={onChange}>
+     <Selectors  name="activities" id="activities" onChange={onChange}>
         <Options value={'allCountries'} >Filter by Activities</Options>
         <Options value={'allActivities'}>All containt Activities</Options>
         { allActivities && allActivities?.map((act)=><Options key={act.id} value={act.name}>{act.name}</Options>)}

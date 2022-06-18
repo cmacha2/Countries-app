@@ -4,12 +4,11 @@ import './index.css';
 import { BrowserRouter,Switch, Route } from 'react-router-dom';
 import { Provider } from "react-redux";
 import store from "./Redux/store";
-import App from './components/App/App.jsx';
 import LandingPage from './components/LandingPage/LandingPage';
 import Error404 from './components/Error/Error404';
 import Details from './components/Details/Details';
 import FormActivity from './components/FormActivity/FormActivity';
-import { GlobalStyle } from './GlobalStyled';
+import App from './components/App/App';
 
 ReactDOM.render(
   <BrowserRouter>

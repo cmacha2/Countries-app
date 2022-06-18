@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     display: flex;
     height: 5.2rem;
     background-color: ${({theme})=> theme.bgc};

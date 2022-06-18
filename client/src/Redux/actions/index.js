@@ -45,12 +45,6 @@ export function getAllActivies(){
   }
 }
 
-// export function getFilterActivities(nameActivity){
-//   return async function (dispatch){
-//     const {data} = await axios.get(`http://localhost:3001/activities/${nameActivity}`)
-//     dispatch({type: GET_FILTER_ACTIVITIES, payload:[nameActivity,...data]})
-//   }
-// }
 export function getFilterActivities(nameActivity){
   return{type: GET_FILTER_ACTIVITIES, payload:nameActivity}
 }

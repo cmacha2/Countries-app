@@ -75,9 +75,8 @@ export default function FormActivity() {
     setCountries(filterCountries);
   };
 
-  const onClick = (e) =>{
+  const onClick = () =>{
     setModal(!modal)
-    
   }
 
   return (
@@ -88,6 +87,7 @@ export default function FormActivity() {
         <h3>Name</h3>
         <div className="container-name">
           <input
+            id="name"
             value={input.name}
             onChange={handleInputChange}
             name="name"
@@ -101,6 +101,7 @@ export default function FormActivity() {
         <h3>Duration</h3>
         <div className="select-time">
           <input
+          id="duration"
             value={input.duration}
             onChange={handleInputChange}
             name="duration"
@@ -116,6 +117,7 @@ export default function FormActivity() {
           <label className="container">
             One
             <input
+              id="difficulty1"
               type="radio"
               name="difficulty"
               value="2"
@@ -126,6 +128,7 @@ export default function FormActivity() {
           <label className="container">
             Two
             <input
+            id="difficulty2"
               type="radio"
               name="difficulty"
               value="2"
@@ -133,9 +136,10 @@ export default function FormActivity() {
             />
             <span className="checkmark"></span>
           </label>
-          <label className="container">
+          <label  id="difficulty3" className="container">
             Three
             <input
+            id="difficulty3"
               type="radio"
               name="difficulty"
               value="3"
@@ -146,6 +150,7 @@ export default function FormActivity() {
           <label className="container">
             Four
             <input
+            id="difficulty4"
               type="radio"
               name="difficulty"
               value="4"
@@ -156,6 +161,7 @@ export default function FormActivity() {
           <label className="container">
             Five
             <input
+            id="difficulty5"
               type="radio"
               name="difficulty"
               value="5"
@@ -173,6 +179,7 @@ export default function FormActivity() {
           <label className="container">
             Spring
             <input
+            id="spring"
               type="radio"
               name="season"
               value="Spring"
@@ -180,19 +187,21 @@ export default function FormActivity() {
             />
             <span className="checkmark"></span>
           </label>
-          <label className="container">
+          <label  id="summer" className="container">
             Summer
             <input
+            id="summer"
               type="radio"
               name="season"
               value="Summer"
               onChange={handleInputChange}
             />
-            <span className="checkmark"></span>
+            <span  className="checkmark"></span>
           </label>
           <label className="container">
             Fall
             <input
+            id="fall"
               type="radio"
               name="season"
               value="Fall"
@@ -203,6 +212,7 @@ export default function FormActivity() {
           <label className="container">
             Winter
             <input
+            id="winter"
               type="radio"
               name="season"
               value="Winter"
@@ -217,7 +227,7 @@ export default function FormActivity() {
         <div className="countries">
           <select
             name="ids"
-            id="activities"
+            id="selectCountries"
             className="selector-countries"
             onChange={onChange}
           >
@@ -250,12 +260,13 @@ export default function FormActivity() {
           type="submit"
           onSubmit={onSubmit}
           className="create-button"
+          id="buttonCreate"
         >
           Create
         </button>
       </div>
     </Container>
-    <BackButton onClick={()=>history.replace(`/home`)}>Back</BackButton> 
+    <BackButton id="backButtonActivity" onClick={()=>history.replace(`/home`)}>Back</BackButton> 
     <ContainerModal>
         {modal && (
           <div className="modal">
@@ -265,7 +276,7 @@ export default function FormActivity() {
               {info.difficulty} and duration of {info.duration} in{" "}
               {info.season} season has been successful
             </p>
-            <button onClick={(e)=>onClick(e)}>Cerrar</button>
+            <button id="buttonClose" onClick={(e)=>onClick(e)}>Cerrar</button>
           </div>
         )}
       </ContainerModal>

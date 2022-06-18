@@ -57,18 +57,18 @@ export const ContainerInput = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
 
-  input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    border: none;
-    outline: none;
-    font-size: 18px;
-    padding: 10px 0;
-  }
+export const SearchInput = styled.input`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding: 10px 0;
 `;
 
 export const ClearInput = styled.span`

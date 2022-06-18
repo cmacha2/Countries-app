@@ -45,7 +45,7 @@ export default function Details() {
               <br />
             </ContainerInformation>
           </StyledCard>
-          <BackButton onClick={() => history.replace(`/home`)}>Back</BackButton>
+          <BackButton id="buttonBack" onClick={() => history.replace(`/home`)}>Back</BackButton>
         </ContainerDetails>
         <ContainerActivities>
           {countriesDetails.Activities?.map((act) => (

@@ -1,26 +1,30 @@
 import styled from "styled-components";
 
 export const ContainerSwitch = styled.div`
-.container{
-   position: absolute;
+  position: absolute;
    top: 2.5rem;
    right: 0rem;
    transform: translate(-50%,-50%);
    text-align: center;
-   .label-theme{
-   position: absolute;
+`;
+
+export const LaberTheme = styled.label`
+ position: absolute;
    top: 50%;
    right: 80%;
    transform: translate(-50%,-50%);
    text-align: center;
-   }
-   .switch{
+`;
+export const LaberlSwitch = styled.label`
    position: relative;
    display: inline-block;
    width: 60px;
    height: 30px;
    margin: 0 10px;
-   .slider{
+   color: ${({theme})=> theme.bgc};
+`
+
+export const SpanSlider = styled.span`
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -30,9 +34,7 @@ export const ContainerSwitch = styled.div`
     background-color: ${({theme})=> theme.text};
     transition: .4s;
     border-radius: 34px;
-   }
-   input{display:none}
-   .slider:before{
+    &:before{
     position: absolute;
     content: "";
     height: 20px;
@@ -41,14 +43,16 @@ export const ContainerSwitch = styled.div`
     bottom: 5px;
     background-color: ${({theme})=> theme.bgc};
     border-radius: 50px;
+    }
+`;
+
+export const InputCheckBox = styled.input`
+  display: none;
+  &:checked + ${SpanSlider} {
+    background-color: ${({ theme }) => theme.text};
   }
-  input:checked + .slider{
-    background-color: ${({theme})=> theme.text};
-  }
-  input:checked + .slider:before{
-    background-color:${({theme})=> theme.bgc};
+  &:checked + ${SpanSlider}:before {
+    background-color: ${({ theme }) => theme.bgc};
     transform: translateX(30px);
   }
-}
-}
-`
+`;

@@ -7,7 +7,7 @@ export default function Card({country}) {
     <Container>
          <StyledCard>
           <CardHeader>
-            <ImgFlag className='flag' src={country.img}  alt={country.name} />
+            <ImgFlag src={country.img}  alt={country.name} />
            </CardHeader>
            <CardCountry>
              <CountryAvatar>
@@ -23,7 +23,7 @@ export default function Card({country}) {
              </CardCountry>
              <ReadMore>
            <Link to={`/countries/${country.id}`} >
-           <ButtonReadMore>Read more</ButtonReadMore>
+           <ButtonReadMore id="readMore">Read more</ButtonReadMore>
            </Link> 
            </ReadMore>
          </StyledCard>
