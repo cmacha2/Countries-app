@@ -5,6 +5,7 @@ export const Container = styled.div`
     padding: 0;
     margin: 0;
     padding-bottom: 1.05rem;
+    position: relative;
    `
  export const ContainerCardsList = styled.div`
     display: flex;

@@ -13,7 +13,6 @@ import {
   getCountriesSort,
   getFilterActivities,
   switchTheme,
-  updateLoading,
 } from "../../Redux/actions";
 import Messages from "./Menssages";
 
@@ -23,12 +22,11 @@ export default function ChatBot({ showComponent, setShowComponent }) {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
   const stateBot = useSelector((state) => state.botInfo);
-  const sLoadingMsg = useSelector((state) => state.sLoadingMsg);
   //const msgWelcome = 'Hola bienvenidos al proyecto individual de Cristian Machado, en el cual estaremos trabajando con el api de robot y usamos tecnologias como react readux express nodejs'
   // mensaje de bienvenida se puede poner con un useEffect para cuando se monte el componente el bot envie el primer mensaje. ya despues implementar la logica.
   function msgProcessing(input) {
     const msgLowerCase = input.toLowerCase();
-    if (msgLowerCase.includes("continuar")) return "entro"; // req.history para ir a la siguiente pagina o close para cerrar la pestana o sino con link envio una respuesta y si matchea link a la proxima
+  // req.history para ir a la siguiente pagina o close para cerrar la pestana o sino con link envio una respuesta y si matchea link a la proxima
     if (
       msgLowerCase.includes("hola") ||
       msgLowerCase.includes("hi") ||
@@ -38,7 +36,7 @@ export default function ChatBot({ showComponent, setShowComponent }) {
       msgLowerCase.includes("good morning") ||
       msgLowerCase.includes("hello")
     )
-      return "Hola que tal bienvenido al Proyeccto individual de Cristian Machado para mas informacion teclear /mas informacion ";
+      return "Welcome to the Individual Project of Cristian Machado, with the theme of countries. For more information write more information";
     //
     if (
       msgLowerCase.includes("information") ||
@@ -87,14 +85,16 @@ export default function ChatBot({ showComponent, setShowComponent }) {
         (x) => " " + x.name
       )}) or maybe you want to filter by continent type the name of the continent`;
 
-    var activityType = allActivities.filter((x) =>
-      x.name.toLowerCase().includes(msgLowerCase)
-    );
-    if (activityType.length) {
-      console.log(msgLowerCase);
-      dispatch(getFilterActivities(msgLowerCase));
-      return "Successful, showing all countries with activity " + msgLowerCase;
-    }
+    // if(allActivities.length){
+    //   var activityType = allActivities.filter((x) =>
+    //     x.name.toLowerCase().includes(msgLowerCase)
+    //   );
+    // }
+
+    // if (activityType.length!==undefined) {
+    //   dispatch(getFilterActivities(msgLowerCase));
+    //   return "Successful, showing all countries with activity " + msgLowerCase;
+    // }
     if (msgLowerCase.includes("activities")) {
       dispatch(getAllActivies());
       return "Successful, showing all countries with activity ";
@@ -128,10 +128,9 @@ export default function ChatBot({ showComponent, setShowComponent }) {
     if (msgLowerCase.includes("automated test"))
       return "Please give a thumbs up to this guy who put in a lot of effort.";
 
-    if (msgLowerCase)
-      return `Disculpe actualmente no podemos ayudarlo con nada mas`;
-  }
+    if (msgLowerCase) return `Sorry we can not help you with anything else, write more information to choose other options`;
 
+  }
   const onSubmit = (e) => {
     e.preventDefault();
     if (input !== "") {
@@ -174,7 +173,6 @@ export default function ChatBot({ showComponent, setShowComponent }) {
           usuario="usuario"
         />
         <ButtonSend className="" type="submit">
-          {/* <IoMdSend /> */}
         </ButtonSend>
       </Form>
     </Container>
@@ -192,16 +190,22 @@ const Label = styled.label`
   color: ${(props) => (props.switch ? "#fbfbfb" : "#ffffff")};
   font-family: sans-serif;
   font-size: 1.2rem;
+  padding-left: 5rem ;
 `;
 const ButtonClose = styled.button`
   margin-left: 4px;
   width: 1.5rem;
   height: 1.5rem;
   color: white;
-  background-color: #344d6c;
+  /* background-color: #344d6c; */
+  background-color: transparent;
   border: white;
   border-radius: 0.4rem;
   cursor: pointer;
+  background-image: url('https://i.postimg.cc/J0TFbm3Y/png-transparent-computer-icons-symbol-miscellaneous-logo-button-icon-thumbnail-removebg-preview.png');
+  background-size: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 const ChatsContainer = styled.div`
@@ -250,13 +254,17 @@ const Input = styled.input`
   padding-left: 1rem;
 `;
 const ButtonSend = styled.button`
-  width: 8%;
-  height: 2rem;
+  width: 2rem;
+  height: auto;
   margin-right: 0.2rem;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   border: none;
   background-color:${({theme})=> theme.inputChat};
+  background-image: url('https://i.postimg.cc/brrwpymq/icosend.png');
+  background-size: 1.3rem;
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 const Container = styled.div`

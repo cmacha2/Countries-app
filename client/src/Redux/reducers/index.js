@@ -1,7 +1,7 @@
 // import { msgWelcome } from "../../components/ChatBot/ChatBot";
 import  {CURRENT_PAGE, GET_ALL_ACTIVITIES, GET_FILTER_ACTIVITIES, SHOW_ALL_ACTIVITIES, SortNameAZ, SortNameZA, SortPopulationAZ, SortPopulationZA, SWITCH_THEME } from "../actions-types";
 import { ADD_CHATBOT_INFO, GET_COUNTRIES, GET_COUNTRIES_SORT, GET_COUNTRIES_DETAILS, GET_COUNTRIES_FOR_CONTINENT, GET_COUNTRIES_MATCH, POST_ACTIVITY} from "../actions-types";
-const msgWelcome = `Welcome to the Individual Project of Cristian Machado, with the theme of countries. For more information write more information`
+const msgWelcome = `Welcome to TravelWorld, it is a SPA with the theme of countries in which you can add tourist activities. Made by Cristian Machado in the Bootcamps SoyHenry Individual Project. To continue write information`
 
 const initialState = {
     botInfo: [{bot:msgWelcome}],
@@ -12,7 +12,7 @@ const initialState = {
     allActivities:[],
     currentPage:0,
     status:0,
-    theme:false
+    theme:true
   }; 
 
   export default function rootReducer(state = initialState, action) {
@@ -25,12 +25,11 @@ const initialState = {
         }
       }
       case GET_COUNTRIES:{
-
         const [countries,status] = action.payload
-        console.log(countries)
         return {
           ...state,
           currentPage:0,
+          allActivities:[],
           countries:countries,
           allCountries:countries,
           status:status,
@@ -72,7 +71,6 @@ const initialState = {
       }
 
       case GET_COUNTRIES_SORT:{
-        console.log(action.payload)
         var getSort;
         if(action.payload.value==='sortName-a-z'){
           getSort = SortNameAZ

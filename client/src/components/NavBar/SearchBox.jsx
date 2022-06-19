@@ -25,7 +25,6 @@ export const SearchBox = () => {
     setCountry(e.target.value);
   };
 
-  console.log(flag);
   return (
     <WrapperSearchBox>
       <Search switch={flag}>

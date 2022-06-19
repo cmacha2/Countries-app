@@ -7,6 +7,7 @@ import validate from "./validate";
 import { useHistory } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import Themes from "../Theme/Themes";
+import { GlobalStyle } from "../../GlobalStyled";
 
 export default function FormActivity() {
   const theme = useSelector(state => state.theme);
@@ -16,8 +17,11 @@ export default function FormActivity() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [countries, setCountries] = useState([]);
+  const AllCountriesSort = allCountries.sort(function SortNameAZ(a, b){
+    return a.name.localeCompare(b.name);
+})
   
-  if (!allCountries.length) dispatch(getCountries());
+  if (!AllCountriesSort.length) dispatch(getCountries());
   const [input, setInput] = useState({
     name: "",
     duration: "",
@@ -34,11 +38,11 @@ export default function FormActivity() {
 
   const onSubmit = function (e) {
     e.preventDefault();
-    let difficulty = parseInt(input.difficulty);
-    setInput({
-      ...input,
-      difficulty,
-    });
+    // let difficulty = parseInt(input.difficulty);
+    // setInput({
+    //   ...input,
+    //   difficulty,
+    // });
     dispatch(postActivity(input)) && setModal(true);
     setInfo(input)
     
@@ -81,6 +85,7 @@ export default function FormActivity() {
 
   return (
     <ThemeProvider theme={Themes[theme ? 'dark' : 'light']}>
+      <GlobalStyle/>
     <Container type="submit" onSubmit={onSubmit}>
       <div className="card">
         <img src={activitylogo} alt="activity-logo" className="activity-logo" />
@@ -232,7 +237,7 @@ export default function FormActivity() {
             onChange={onChange}
           >
             <option>Select Countries</option>
-            {allCountries?.map((c, i) => (
+            {AllCountriesSort?.map((c, i) => (
               <option name="ids" key={i} value={c.id}>
                 {c.name}
               </option>
@@ -265,8 +270,8 @@ export default function FormActivity() {
           Create
         </button>
       </div>
+      <BackButton id="backButtonActivity" onClick={()=>history.replace(`/home`)}>Back</BackButton> 
     </Container>
-    <BackButton id="backButtonActivity" onClick={()=>history.replace(`/home`)}>Back</BackButton> 
     <ContainerModal>
         {modal && (
           <div className="modal">

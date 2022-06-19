@@ -24,8 +24,8 @@ export default function SortByPopulation() {
      <ContainerMenu>
     <Selectors name="Continents" id="Continents" onChange={onChange}>
         <Options value="">Sort by Population</Options>
-        <Options value="sortPopulation-a-z">Highest to lowest</Options>
-        <Options value="sortPopulation-z-a">Smallest to largest</Options>
+        <Options value="sortPopulation-a-z">Smallest to largest</Options>
+        <Options value="sortPopulation-z-a">Highest to lowest</Options>
     </Selectors>
     </ContainerMenu>
     </>

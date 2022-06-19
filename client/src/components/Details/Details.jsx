@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "../../GlobalStyled";
 import { getCountriesDetails } from "../../Redux/actions";
 import Themes from "../Theme/Themes";
 import Activity from "./Activity";
@@ -28,6 +29,7 @@ export default function Details() {
 
   return (
     <ThemeProvider theme={Themes[theme ? "dark" : "light"]}>
+      <GlobalStyle/>
       <WrapperDetails>
         <ContainerDetails>
           <StyledCard>

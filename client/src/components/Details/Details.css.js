@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const WrapperDetails = styled.div`
   height: 100vh;
-  background-color: ${({ theme }) => theme.bgc};
+  background: ${({theme})=> theme.back};
 `;
 
 export const ContainerDetails = styled.div`
@@ -62,7 +62,7 @@ export const BackButton = styled.div`
   border-radius: 2rem;
   padding: 0.1rem 0.85rem 0.25rem;
   position: relative;
-  right: 57%;
+  right: 60rem;
   top: -16.45rem;
 
   &:hover {

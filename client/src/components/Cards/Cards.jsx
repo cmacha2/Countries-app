@@ -1,22 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useLocation, useParams } from "react-router-dom";
 import {
-  getCountries,
-  getCountriesMatch,
+
   setCurrentPage,
 } from "../../Redux/actions";
 import ButtonMsg from "../ChatBot/ButtonMsg";
-import Error404 from "../Error/Error404";
-import { useDebounce } from "../hooks/useDebounce";
-import useQuery from "../hooks/useQuery";
+
 import { Loading } from "../Loanding/Loading";
 import { NoResults } from "../Loanding/NoResult";
 import Card from "./Card";
 import {
   ButtonCurrentPage,
   Container,
-  ContainerButtons,
   ContainerCardsList,
   FlooterBar,
   WrapperButtons,
@@ -71,7 +66,7 @@ export default function Cards() {
           Next
         </ButtonCurrentPage>
         </WrapperButtons>
-        <ButtonMsg />
+        <ButtonMsg/>
       </FlooterBar>
     </Container>
   );

@@ -11,7 +11,7 @@ const puppeteer = require("puppeteer");
   const page = await browser.newPage();
 
   try {
-    await page.goto("http://localhost:3000/home", { waitUntil: "networkidle2" });
+    await page.goto("https://travel-world-app.vercel.app/", { waitUntil: "networkidle2" });
 
     console.log('entrando')
     await page.waitForTimeout(6000);

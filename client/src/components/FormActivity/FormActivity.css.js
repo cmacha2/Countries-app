@@ -7,9 +7,9 @@ export const Container = styled.form`
   align-items: center;
   padding: 2rem;
   height: 100vh;
-  background-color: ${({ theme }) => theme.bgc};
+  background: ${({theme})=> theme.back};
   .card {
-    width: 580px;
+    width: auto;
     height: auto;
     background-color: ${({ theme }) => theme.bgc};
     margin: 20px;
@@ -241,9 +241,11 @@ export const BackButton = styled.button`
   border: 3px solid #28242f;
   border-radius: 2rem;
   padding: 0.1rem 0.85rem 0.25rem;
-  position: fixed;
-  left: 6%;
-  top: 11%;
+  position: relative;
+  right: 44rem;
+  top: 3rem;
+  /* display: flex;
+  justify-content: flex-end; */
 
   &:hover {
     background-clip: text;

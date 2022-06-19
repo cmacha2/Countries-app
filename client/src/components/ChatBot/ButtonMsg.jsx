@@ -5,8 +5,18 @@ import ChatBot from "./ChatBot";
 export default function ButtonMsg() {
   const [showComponent, setShowComponent] = useState(false);
   return (
-    <>
-      <ContainerButton>
+    <TODO>
+       <ContainerChat>
+        {showComponent&&(
+          <ChatBot
+            showComponent={showComponent}
+            setShowComponent={setShowComponent}
+          />
+        ) }
+        </ContainerChat> 
+
+
+        <ContainerButton>
         <Button
           shake={showComponent}
           id="chatbotMainButton"
@@ -14,28 +24,124 @@ export default function ButtonMsg() {
           onClick={() => setShowComponent(!showComponent)}
         ></Button>
       </ContainerButton>
-      <ContainerChat>
-        {showComponent ? (
-          <ChatBot
-            showComponent={showComponent}
-            setShowComponent={setShowComponent}
-          />
-        ) : null}
-      </ContainerChat>
-    </>
+      
+    </TODO>
   );
 }
 
+// 
+
+const TODO = styled.div`
+
+/* background-color: red; */
+ display: flex;
+justify-content: flex-end;
+ padding-right: 1rem;
+
+ position: fixed; 
+top: 0;
+right: 4rem;
+padding: 1rem;
+
+@media (min-height: 620px) {
+  top: 9%;
+  }
+
+  @media only screen and (min-height:830px) and (max-height:900px){
+  top: 2%;
+  right: 3.5rem;
+  }
+
+@media only screen and (min-width:1680px) and (max-width:1780px){
+  top: 42%;
+  right: 3.5rem;
+  }
+  
+  @media only screen and (min-width:1838px) and (max-width:2200px){
+    top: 30%;
+    right: 3.5rem;
+  }
+
+  @media only screen and (min-width:1650px) and (max-width:2300px){
+    top:31%;
+    right: 3.5rem;
+  }
+ 
+/* @media (min-width: 1500px) {
+  top: 20%;
+  right: 3.5rem;
+  } */
+/* position: fixed;  */
+
+/* @media (height: 974px) {
+ top: 5rem;
+right: 0;
+padding: 0;
+} */
+/* @media only screen and (max-height: 980px) {
+  top: 3.5rem;
+  right: 1rem;
+  padding: 0;
+  } */
+
+  /* @media only screen and (max-height: 1527px) {
+    top: 17rem;
+right: 0;
+padding: 1rem;
+  } */
+`
+
 const ContainerButton = styled.div`
+ position: fixed; 
+top: 85%;
+right: 0;
+padding: 1rem;
+background:transparent;
+
+@media (min-width: 1636px) {
+  top: 90%;
+  }
+  /* display: flex;
+  align-items: flex-end; */
+  /* position: fixed; 
+  top: 51rem; */
+  /* background-color: black; */
+  /* padding-top: 2rem; */
   display: flex;
-  justify-content: flex-end;
-  padding: 0 1.5rem 0 0;
-  position: absolute;
+  align-items: flex-end;
+  
 `;
+
+const ContainerChat = styled.div`
+/* position: absolute;
+top: 85%;
+left: 5%;
+right: 4rem; */
+
+
+  /* position: absolute;
+  bottom: 5rem;
+  right: 3rem;
+  margin: 30px; */  
+
+
+/* position: absolute; 
+top: 7rem;
+right: 5rem;
+padding-bottom:5rem;
+padding-right: 0rem; */
+/* position: absolute; 
+botton: 25rem;
+right: 5rem;
+padding-bottom:5rem;
+padding-right: 0rem; */
+
+
+`;
+
 const Button = styled.button`
-  background-image: url("https://images.vexels.com/media/users/3/135148/isolated/preview/da10190af5af2fd3278b4e9f5e8e5935-mensaje-letrero-plano-con-fondo-redondo.png");
-  border-radius: 100%;
-  background-color: #ffffff0f;
+  background-image: url("https://i.postimg.cc/fL1VrhRk/chatbot-notification-glyph-icon-chat-bot-face-with-exclamation-mark-important-message-virtual-assist.png");
+  background-color: transparent;
   background-size: cover;
   border: none;
   cursor: pointer;
@@ -84,9 +190,4 @@ const Button = styled.button`
   }
 `;
 
-const ContainerChat = styled.div`
-  position: absolute;
-  bottom: 5rem;
-  right: 3rem;
-  margin: 30px;
-`;
+

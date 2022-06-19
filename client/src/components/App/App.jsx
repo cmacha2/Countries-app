@@ -1,4 +1,4 @@
-import React8 from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import Cards from "../Cards/Cards.jsx";
 import NavBar from "../NavBar/NavBar.jsx";
@@ -12,9 +12,13 @@ export default function App() {
   return (
     <ThemeProvider theme={Themes[theme ? 'dark' : 'light']}>
          <GlobalStyle/>
+
          <NavBar />
+
       <OptionBar />
+
       <Cards />
+      {/* <GlobalChatBot/> */}
         </ThemeProvider>
   );
 }

@@ -10,10 +10,14 @@ export const ContainerSwitch = styled.div`
 
 export const LaberTheme = styled.label`
  position: absolute;
+ font-family: sans-serif;
+ font-size: 1.2rem;
+ font-weight: 10px;
    top: 50%;
    right: 80%;
    transform: translate(-50%,-50%);
    text-align: center;
+   color: ${({theme})=> theme.text};
 `;
 export const LaberlSwitch = styled.label`
    position: relative;
